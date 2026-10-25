@@ -1,17 +1,36 @@
 # WOSVIP Launcher
+**Minecraft Java Edition para Windows · Versão 02.6.6.94**
 
-**Independent desktop launcher project for Minecraft: Java Edition.**
+Launcher independente para gerenciar instalações, escolher carregadores e personalizar seu personagem.
 
-WOSVIP Launcher is being developed using **C#**, **.NET 8**, and **Avalonia UI**. The current project focuses on installation management, Fabric-based game profiles, and mod organization. Windows is the initial target platform; Linux support is planned.
+[**Site do projeto**](https://wosvip.github.io/wosvip-launcher/) · [**Releases**](https://github.com/wosvip/wosvip-launcher/releases)
 
-## Authentication and licensing
+> **Versão 02.6.6.94:** testada localmente no Windows 11. A distribuição pública do instalador e a verificação de atualizações pelo GitHub ainda serão preparadas.
 
-Microsoft account sign-in and Xbox Live/XSTS integration are being tested. Authorization to access Minecraft Services for the registered application is **pending review**. The project is intended for users with legitimate game licenses and does not aim to bypass account authentication, game ownership checks, or security measures.
+## Conheça o launcher
+![Tela inicial do WOSVIP Launcher](assets/inicio.webp)
 
-## Project website
+### Recursos validados
+- Perfis Minecraft Java com **Vanilla, Fabric, Forge e NeoForge**.
+- Login Microsoft e restauração de sessão com conta Minecraft Java válida.
+- Visualização 3D de skins, capas oficiais e integração com **MinecraftCapes**.
+- Gerenciamento de instalações e atalhos para pastas do Minecraft e mods.
+- Detecção de Java, ajustes de RAM e resolução e ferramentas de diagnóstico.
+- Minimização do launcher ao abrir o jogo e restauração ao encerrar, nos testes locais.
 
-GitHub Pages setup is pending. When enabled, the website will be available at https://wosvip.github.io/wosvip-launcher/
+## Telas
+| Jogar | Instalações |
+|---|---|
+| ![Jogar](assets/jogar.webp) | ![Instalações](assets/instalacoes.webp) |
 
-## Disclaimer
+| Personagem, skins e capas | Conta Microsoft |
+|---|---|
+| ![Skins e capas](assets/skins-capas.webp) | ![Conta Microsoft](assets/conta-microsoft.webp) |
 
-Independent, unofficial project. Not affiliated with, endorsed by, or sponsored by Microsoft, Mojang, or Minecraft. All trademarks belong to their respective owners.
+![Configurações](assets/configuracoes.webp)
+
+## Distribuição e próximos passos
+Consulte [Releases](https://github.com/wosvip/wosvip-launcher/releases) para verificar se há instalador publicado. A futura consulta a atualizações usará o GitHub Releases, com aviso e instalação **somente mediante autorização**. Esse mecanismo ainda não está implementado.
+
+## Aviso
+Projeto independente e não oficial, sem vínculo, patrocínio ou endosso da Microsoft, Mojang ou Minecraft. Destinado a usuários com licença válida do Minecraft: Java Edition. Não contorna autenticação nem verificações de propriedade do jogo.
