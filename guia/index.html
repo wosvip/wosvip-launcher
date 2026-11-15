@@ -78,7 +78,7 @@
 <div class="pagina-topo"></div>
 <div class="capa">
   <img src="img/capa.png" alt="ServidorPlus">
-  <div class="versao">Versão de 14/11/2026</div>
+  <div class="versao">Versão de 15/11/2026</div>
 </div>
 <h1>ServidorPlus</h1>
 <p class="sub">Mod de servidor para Minecraft Java 26.3 · Fabric</p>
@@ -87,7 +87,9 @@
 <div class="caixa-novidades">
   <b class="tit">★ Novidades desta versão</b>
   <ul>
-    <li><b>Morph (VIP)</b>: vire quase qualquer mob do jogo com a tecla <b>G</b> e use o poder dele com a tecla <b>V</b> (bola de fogo, teleporte, laser, voo...). Virou monstro, os monstros não te atacam.</li>
+    <li><b>Reparo para todos</b> no bloco de ferro, com o material do item (netherite, diamante, ferro, tábua, pedregulho, linha...). Sem VIP o item perde os encantamentos; VIP mantém. Nova habilidade <b>Reparação</b> com encantamento extra e, bem raro, encantamento <b>supremo</b> nível 7 a 10.</li>
+    <li><b>Novos preços do VIP</b>: 3 horas $30.000 · 7 dias $120.000 · 1 mês $500.000. Morph sem VIP custa $3.500 por vez.</li>
+    <li><b>Morph</b>: vire quase qualquer mob do jogo com a tecla <b>G</b> e use o poder dele com a tecla <b>V</b> (bola de fogo, teleporte, laser, voo...). Virou monstro, os monstros não te atacam.</li>
     <li><b>Durabilidade na tela</b>: durabilidade colorida da armadura e dos itens, flechas, espaços livres e tempo das poções, com aviso de item quebrando. Tecla <b>H</b> mostra/esconde.</li>
     <li><b>Sodium embutido</b> e nova página <b>Melhor desempenho (FPS)</b> com os ajustes que dobraram o FPS no teste.</li>
     <li><b>Mod Menu embutido</b>: na pasta mods basta o Fabric API e o ServidorPlus. O botão "Mods" já vem junto.</li>
@@ -104,10 +106,11 @@
   <li><b>Loja</b> – compra e venda de mais de mil itens, livros encantados, gerador de mobs e ovos, com preços equilibrados pelas receitas do jogo.</li>
   <li><b>Loja de jogador</b> – cada jogador cria a sua loja com placa e baú (trancado só para ele) e pode abrir uma loja pública para visitas.</li>
   <li><b>Casas modernas</b> – compre uma casa pequena, média ou grande, construída na hora e protegida.</li>
-  <li><b>Habilidades</b> – sete habilidades que sobem de nível com o uso e liberam tesouros (agora com Pescador).</li>
+  <li><b>Habilidades</b> – oito habilidades que sobem de nível com o uso e liberam tesouros (agora com Reparação).</li>
+  <li><b>Reparo</b> – conserte itens gastos num bloco de ferro, gastando o material do item. VIP mantém os encantamentos.</li>
   <li><b>Macros</b> – automatize pesca, farm, PvP, baús e craft com um script e uma tecla.</li>
   <li><b>Minimapa</b> – mapa no canto da tela, configurável por cada jogador.</li>
-  <li><b>Morph (VIP)</b> <span class="novo">NOVO</span> – vire qualquer mob, com os poderes e o tamanho dele.</li>
+  <li><b>Morph</b> <span class="novo">NOVO</span> – vire um mob, com os poderes e o tamanho dele (grátis para VIP, $3.500 sem VIP).</li>
   <li><b>Durabilidade na tela</b> <span class="novo">NOVO</span> – durabilidade da armadura e das ferramentas, flechas, espaços livres e tempo das poções.</li>
   <li><b>VIP</b> – planos de 3 horas, 7 dias e 1 mês, com /craft, /fornalha, /bau, /voar, morph, geradores e outras vantagens.</li>
   <li><b>Limpeza do chão</b> – aviso na tela e contagem regressiva antes de remover os itens do chão.</li>
@@ -196,7 +199,7 @@
 <h3>Habilidades, minimapa, macros e durabilidade</h3>
 <table>
   <tr><th style="width:36%">Comando</th><th>O que faz</th></tr>
-  <tr><td><code>/habilidades</code> (ou <code>/skills</code>, <code>/hab</code>)</td><td>Mostra os seus níveis nas sete habilidades</td></tr>
+  <tr><td><code>/habilidades</code> (ou <code>/skills</code>, <code>/hab</code>)</td><td>Mostra os seus níveis nas oito habilidades</td></tr>
   <tr><td><code>/habilidades &lt;jogador&gt;</code></td><td>Mostra os níveis de outro jogador</td></tr>
   <tr><td><code>/habilidades info &lt;habilidade&gt;</code></td><td>Tesouros da habilidade, nível necessário e chance de cada um</td></tr>
   <tr><td><code>/habilidades top &lt;habilidade&gt;</code></td><td>Ranking da habilidade</td></tr>
@@ -214,9 +217,9 @@
   <tr><td><code>/voar</code> ou <code>/fly</code></td><td>Liga/desliga o voo: pule duas vezes para voar</td></tr>
   <tr><td><code>/visao</code></td><td>Liga/desliga a visão noturna</td></tr>
   <tr><td><code>/pvp</code></td><td>Liga/desliga o PvP: com ele desligado ninguém te ataca (e você não ataca)</td></tr>
-  <tr><td>Bloco de ferro</td><td>Clique direito com o item gasto: repara gastando 1 bloco do material</td></tr>
+  <tr><td>Bloco de ferro</td><td>Repara o item <b>mantendo os encantamentos</b> (sem VIP o reparo apaga os encantamentos)</td></tr>
   <tr><td>Picareta de netherite</td><td>Quebra um gerador de mobs e ele cai como item, guardando o mob</td></tr>
-  <tr><td><code>/morph</code> ou tecla <b>G</b> <span class="novo">NOVO</span></td><td>Abre o menu de morph com todos os mobs (busca por nome)</td></tr>
+  <tr><td><code>/morph</code> ou tecla <b>G</b> <span class="novo">NOVO</span></td><td>Abre o menu de morph com todos os mobs (busca por nome). VIP vira de graça; sem VIP custa $3.500 por morph</td></tr>
   <tr><td><code>/morph virar &lt;mob&gt;</code> <span class="novo">NOVO</span></td><td>Vira o mob (nome em português ou inglês: zumbi, esqueleto, blaze...). O Tab completa</td></tr>
   <tr><td>Tecla <b>V</b> <span class="novo">NOVO</span></td><td>Usa o poder do mob (no Creeper: segure e solte)</td></tr>
   <tr><td><code>/morph sair</code> <span class="novo">NOVO</span></td><td>Volta ao normal (ou o botão "Voltar ao normal" no menu)</td></tr>
@@ -246,7 +249,7 @@
 
 <!-- ======================= HABILIDADES ======================= -->
 <h2>Habilidades</h2>
-<p>Sete habilidades sobem de nível com o uso, no estilo do mcMMO. A cada <b>500 XP</b> você sobe 1 nível, sem limite. Cada nível libera tesouros novos e aumenta a chance deles cair.</p>
+<p>Oito habilidades sobem de nível com o uso, no estilo do mcMMO. A cada <b>500 XP</b> você sobe 1 nível, sem limite. Cada nível libera tesouros novos e aumenta a chance deles cair.</p>
 <div class="cartoes">
   <div class="cartao" style="background:#2a8fa8"><b>⛏ Minerador</b><span>Pedra e minérios com picareta</span></div>
   <div class="cartao" style="background:#d98a1c"><b>⚒ Escavador</b><span>Terra, areia, cascalho, argila e areia das almas</span></div>
@@ -255,6 +258,7 @@
   <div class="cartao" style="background:#2e6e2e"><b>♣ Lenhador</b><span>Cortar troncos de árvores</span></div>
   <div class="cartao" style="background:#c0393b"><b>⚔ Combate</b><span>Matar monstros e jogadores (PvP)</span></div>
   <div class="cartao" style="background:#1f6f8b"><b>🎣 Pescador</b><span>Pescar peixes, tesouros e lixo com a vara</span></div>
+  <div class="cartao" style="background:#8e44ad"><b>🔧 Reparação</b><span>Reparar itens gastos no bloco de ferro</span></div>
 </div>
 <div class="figura">
   <img src="img/subiu-nivel.png" alt="Subiu de nível">
@@ -281,6 +285,7 @@
   <tr><td>Lenhador</td><td>cada tronco 4</td></tr>
   <tr><td>Combate</td><td>zumbi 6 · esqueleto 7 · creeper 8 · bruxa 10 · enderman e blaze 12 · esqueleto wither 15 · evocador 25 · PvP 25 · guardião ancião 100 · warden 200 · wither 300 · dragão 500 · outros 5</td></tr>
   <tr><td>Pescador</td><td>lixo 4 · peixe 10 · tesouro 25 · tesouro encantado 40</td></tr>
+  <tr><td>Reparação</td><td>madeira 5 · pedra e vara de pesca 8 · couro 10 · cobre 15 · ferro e ouro 25 · diamante 50 · netherite 100</td></tr>
 </table>
 
 <h2>Tesouros de cada habilidade</h2>
@@ -538,12 +543,13 @@
 </table>
 <p class="nota">Fica salvo em <code>config/servidorplus-durabilidade.json</code>, no jogo do jogador. Baseado no Durability Viewer (Giselbaer / fanta, licença MIT).</p>
 
-<h2 class="quebra">Morph (VIP) <span class="novo">NOVO</span></h2>
-<p>Quem tem <b>VIP ativo</b> pode virar <b>quase qualquer mob do jogo</b> (87 mobs), sem precisar matar nada. Só os chefes Dragão, Wither e Warden ficam de fora. Os outros jogadores veem o mob no seu lugar, com o seu nome em cima. Quem não tem VIP vê o aviso para comprar no <code>/vip</code>. Precisa do mod instalado no jogo de cada jogador.</p>
+<h2 class="quebra">Morph <span class="novo">NOVO</span></h2>
+<p>Vire <b>quase qualquer mob do jogo</b> (87 mobs), sem precisar matar nada. Só os chefes Dragão, Wither e Warden ficam de fora. Os outros jogadores veem o mob no seu lugar, com o seu nome em cima. Precisa do mod instalado no jogo de cada jogador.</p>
+<div class="destaque"><b>VIP vira de graça.</b> Sem VIP, cada morph custa <b>$3.500</b>, descontados do saldo na hora de virar. Voltar ao normal é grátis.</div>
 <ul>
   <li><b>Tecla G</b> (ou <code>/morph</code>): abre o menu com o ovo de cada mob. Busque pelo nome e passe o mouse para ver os poderes. Clique para virar.</li>
   <li><b>Tecla V</b>: usa o poder do mob. Cada poder tem um tempo de recarga.</li>
-  <li><b>Voltar ao normal</b>: botão no menu ou <code>/morph sair</code>. Ao sair do jogo ou quando o VIP acaba, você volta ao normal sozinho.</li>
+  <li><b>Voltar ao normal</b>: botão no menu ou <code>/morph sair</code>. Ao sair do jogo você volta ao normal sozinho.</li>
   <li>Você fica com a <b>vida</b>, o <b>tamanho</b> e (cavalos e voadores) a <b>velocidade</b> do mob. A armadura fica invisível, mas continua protegendo.</li>
   <li><b>Disfarce</b>: virou um monstro (zumbi, esqueleto, creeper, aranha...), os monstros não te atacam, a não ser que você bata neles. Chefes (Wither, Warden, Dragão) não caem no disfarce.</li>
   <li><b>Voo</b>: Ghast, Phantom, Morcego, Abelha, Allay e Vex voam (pulo sobe, agachar desce); o Blaze flutua. Ninguém é expulso por voar.</li>
@@ -679,7 +685,7 @@ repetir 20
 fim
 <span class="c"># para bater mais rápido:
 # troque "esperar ataque" por "esperar 3t"</span></pre>
-<pre><span class="c"># REPARO NO BLOCO DE FERRO (VIP)
+<pre><span class="c"># REPARO NO BLOCO DE FERRO
 # /sethome reparo em cima do bloco,
 # olhando para baixo</span>
 /home reparo
@@ -728,9 +734,9 @@ fim</pre>
 <h2>Planos VIP</h2>
 <table>
   <tr><th>Plano</th><th>Comando</th><th>Preço</th><th>Pode comprar de novo</th></tr>
-  <tr><td>3 Horas</td><td><code>/vip comprar 3h</code></td><td>$5.000</td><td>24 horas depois</td></tr>
-  <tr><td>7 Dias</td><td><code>/vip comprar 7d</code></td><td>$50.000</td><td>quando os 7 dias acabarem</td></tr>
-  <tr><td>1 Mês</td><td><code>/vip comprar 1m</code></td><td>$150.000</td><td>quando os 30 dias acabarem</td></tr>
+  <tr><td>3 Horas</td><td><code>/vip comprar 3h</code></td><td>$30.000</td><td>24 horas depois</td></tr>
+  <tr><td>7 Dias</td><td><code>/vip comprar 7d</code></td><td>$120.000</td><td>quando os 7 dias acabarem</td></tr>
+  <tr><td>1 Mês</td><td><code>/vip comprar 1m</code></td><td>$500.000</td><td>quando os 30 dias acabarem</td></tr>
 </table>
 <p class="nota">Cada plano tem o seu limite e um não bloqueia o outro: quem comprou o de 3 horas pode comprar o de 7 dias, e o tempo é somado ao VIP atual. O /vip mostra se cada plano está disponível ou quanto falta. O /vip dar do admin não tem limite.</p>
 <p>Itens que entram no inventário ao ativar cada plano:</p>
@@ -740,7 +746,7 @@ fim</pre>
   <tr><td>7 Dias</td><td>Armadura completa, espada, picareta, machado e pá de diamante encantados (com Remendo), 1 cabeça aleatória, 16 obsidianas, 1 Ghast Seco e 1 Golem de Cobre</td></tr>
   <tr><td>1 Mês</td><td>Armadura e ferramentas de netherite PRO, arco, totem, 16 pérolas do End, 2 ovos de mob aleatórios, 1 spawner, 1 baú de Ender e 15.000 de experiência</td></tr>
 </table>
-<p><b>Vantagens do VIP:</b> /kit vip, 15 homes (normal tem 5), diário de $2.000, 3 casas (normal tem 1), 20 lojas com placa (normal tem 5), /craft (bancada portátil), /fornalha (funde na hora, sem carvão, e dá XP), /bau (baú duplo de 54 espaços), /voar (pule duas vezes para voar), /visao (visão noturna), /pvp, morph (vire qualquer mob, tecla G), retirar geradores de mobs com picareta de netherite, teleporte sem contagem, não perde itens nem XP ao morrer e reparo no bloco de ferro. Quando o VIP vence, as vantagens param, o voo é desligado e o morph acaba sozinhos.</p>
+<p><b>Vantagens do VIP:</b> /kit vip, 15 homes (normal tem 5), diário de $2.000, 3 casas (normal tem 1), 20 lojas com placa (normal tem 5), /craft (bancada portátil), /fornalha (funde na hora, sem carvão, e dá XP), /bau (baú duplo de 54 espaços), /voar (pule duas vezes para voar), /visao (visão noturna), /pvp, morph grátis (sem VIP custa $3.500 cada), retirar geradores de mobs com picareta de netherite, teleporte sem contagem, não perde itens nem XP ao morrer e reparo no bloco de ferro mantendo os encantamentos. Quando o VIP vence, as vantagens param e o voo é desligado.</p>
 
 <h3>Baú VIP duplo</h3>
 <ul>
@@ -889,15 +895,32 @@ fim</pre>
 <h3>Teleporte</h3>
 <p>Sem VIP: aparece na tela 3, 2, 1 com “Indo para &lt;destino&gt;” antes de teleportar (home, warp, spawn, back e TPA). Com VIP: teleporta na hora.</p>
 
-<h3>Reparo VIP no bloco de ferro</h3>
-<p>Segure o item gasto e clique com o botão direito num bloco de ferro colocado no chão. O item volta novo sem perder os encantamentos, gastando 1 bloco do inventário:</p>
+<h3>Reparo no bloco de ferro <span class="novo">NOVO</span></h3>
+<p>Qualquer jogador pode reparar. Segure o item gasto e clique com o botão direito num bloco de ferro colocado no chão. O item volta novo, gastando 1 material do inventário:</p>
 <table>
   <tr><th>Item</th><th>Gasta</th></tr>
   <tr><td>Netherite</td><td>1 bloco de netherite</td></tr>
   <tr><td>Diamante</td><td>1 bloco de diamante</td></tr>
-  <tr><td>Ouro</td><td>1 bloco de ouro</td></tr>
-  <tr><td>Ferro e os outros (couro, pedra, madeira, arco, tridente...)</td><td>1 bloco de ferro</td></tr>
+  <tr><td>Ferro e cota de malha</td><td>1 bloco de ferro</td></tr>
+  <tr><td>Ouro · Cobre</td><td>1 bloco de ouro · 1 bloco de cobre</td></tr>
+  <tr><td>Madeira</td><td>1 tábua (qualquer madeira)</td></tr>
+  <tr><td>Pedra</td><td>1 pedregulho</td></tr>
+  <tr><td>Couro</td><td>1 couro</td></tr>
+  <tr><td>Vara de pesca</td><td>1 linha</td></tr>
 </table>
+<ul>
+  <li><b>Sem VIP</b> o item volta <b>sem os encantamentos</b>. Para não perder sem querer, o primeiro clique só avisa: clique de novo em até 5 segundos para confirmar.</li>
+  <li><b>Com VIP</b> o item volta novo <b>mantendo os encantamentos</b>.</li>
+  <li>Outros itens (arco, besta, tridente, escudo, tesoura, élitros...) não reparam no bloco de ferro. Use a bigorna ou o encantamento Remendo.</li>
+</ul>
+<h3>Habilidade Reparação</h3>
+<p>Cada reparo dá XP de Reparação (veja a tabela das habilidades). Quem repara muito ganha prêmios:</p>
+<table>
+  <tr><th style="width:22%">XP de Reparação</th><th>Prêmio a cada reparo</th></tr>
+  <tr><td>10.000 ou mais</td><td><b>5%</b> de chance de o item ganhar <b>1 encantamento extra</b> que ele aceite</td></tr>
+  <tr><td>50.000 ou mais</td><td><b>0,5%</b> de chance (bem raro) de um encantamento <b>supremo</b>: um encantamento do item sobe para o <b>nível 7 a 10</b>. Todo o servidor recebe o anúncio</td></tr>
+</table>
+<p class="nota">Veja o seu XP e as chances com <code>/habilidades info reparacao</code>. O nível 10 é o mais raro de todos.</p>
 
 <!-- ======================= KITS / LIMPEZA ======================= -->
 <h2>O que vem em cada kit</h2>
@@ -978,7 +1001,12 @@ fim</pre>
   <tr><td><code>precoOvos</code></td><td>Preço de cada ovo mais caro (ex.: "evoker": 70000)</td><td>tabela</td></tr>
   <tr><td><code>ovosBloqueados</code></td><td>Ovos que não são vendidos</td><td>chefes</td></tr>
   <tr><td><code>morphAtivo</code> <span class="novo">NOVO</span></td><td>Liga/desliga o morph</td><td>true</td></tr>
-  <tr><td><code>morphSoVip</code> <span class="novo">NOVO</span></td><td>VIP ativo vira qualquer mob; sem VIP não usa</td><td>true</td></tr>
+  <tr><td><code>morphSoVip</code> <span class="novo">NOVO</span></td><td>VIP ativo vira qualquer mob de graça; sem VIP paga o <code>morphPrecoSemVip</code></td><td>true</td></tr>
+  <tr><td><code>morphPrecoSemVip</code> <span class="novo">NOVO</span></td><td>Quanto quem não é VIP paga por morph (0 = sem VIP não usa)</td><td>3500</td></tr>
+  <tr><td><code>reparoAtivo</code> <span class="novo">NOVO</span></td><td>Liga/desliga o reparo no bloco de ferro</td><td>true</td></tr>
+  <tr><td><code>reparoSemVipPerdeEncantamento</code> <span class="novo">NOVO</span></td><td>Sem VIP o item reparado perde os encantamentos</td><td>true</td></tr>
+  <tr><td><code>reparoXpEncantoExtra</code> · <code>reparoChanceEncantoExtra</code></td><td>XP de Reparação e % do encantamento extra</td><td>10000 · 5</td></tr>
+  <tr><td><code>reparoXpSupremo</code> · <code>reparoChanceSupremo</code></td><td>XP de Reparação e % do encantamento supremo (nível 7 a 10)</td><td>50000 · 0.5</td></tr>
   <tr><td><code>morphPorAbate</code> <span class="novo">NOVO</span></td><td>Quem não é VIP libera o morph do mob que matar</td><td>false</td></tr>
   <tr><td><code>morphRecargas</code> <span class="novo">NOVO</span></td><td>Tempo de recarga entre os poderes da tecla V</td><td>true</td></tr>
   <tr><td><code>morphDisfarce</code> <span class="novo">NOVO</span></td><td>Virou monstro, os monstros não atacam</td><td>true</td></tr>
