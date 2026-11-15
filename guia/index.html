@@ -1,0 +1,993 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>ServidorPlus - Guia</title>
+<style>
+  @page {
+    size: A4;
+    margin: 16mm 15mm 16mm 15mm;
+    @bottom-left { content: "ServidorPlus · Minecraft 26.3 Fabric · WOSVIP"; font: 7.5pt "Segoe UI", Arial, sans-serif; color: #777; }
+    @bottom-right { content: "Página " counter(page); font: 7.5pt "Segoe UI", Arial, sans-serif; color: #777; }
+  }
+  :root {
+    --verde: #2f7d32; --verde-escuro: #2e7d32; --verde-cab: #3c8d2f; --verde-claro: #eaf4e4;
+    --ambar: #e3a21a; --ambar-claro: #fff7e3; --texto: #222; --cinza: #666;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { margin: 0; font: 9.2pt/1.45 "Segoe UI", Arial, sans-serif; color: var(--texto); background: #fff; }
+  .pagina-topo { border-top: 2px solid #7cc36a; margin-bottom: 10px; }
+  h1 { font-size: 22pt; color: var(--verde); margin: 10px 0 2px; }
+  h2 { font-size: 14pt; color: var(--verde); margin: 18px 0 6px; }
+  h3 { font-size: 10.5pt; color: #333; margin: 12px 0 4px; }
+  p { margin: 4px 0 6px; }
+  .sub { color: var(--cinza); margin: 0; }
+  .novo { display: inline-block; background: var(--ambar); color: #fff; font-size: 6.5pt; font-weight: 700;
+          padding: 1px 6px; border-radius: 8px; vertical-align: middle; margin-left: 4px; letter-spacing: .3px; }
+  .caixa-novidades { border: 1px solid #e9b949; background: var(--ambar-claro); border-radius: 6px; padding: 8px 12px; margin: 10px 0; }
+  .caixa-novidades b.tit { color: #b9770e; }
+  .caixa-novidades ul { margin: 4px 0 0; padding-left: 16px; }
+  ul { margin: 4px 0 8px; padding-left: 18px; }
+  li { margin: 1px 0; }
+  ol { margin: 4px 0 8px; padding-left: 18px; }
+  code, .cmd { font-family: Consolas, "Courier New", monospace; font-size: 8.4pt; color: #1b5e20; }
+  table { width: 100%; border-collapse: collapse; margin: 6px 0 10px; font-size: 8.4pt; }
+  th { background: var(--verde-cab); color: #fff; text-align: left; padding: 4px 7px; font-weight: 600; }
+  td { padding: 3.5px 7px; border-bottom: 1px solid #e3e3e3; vertical-align: top; }
+  tr:nth-child(even) td { background: var(--verde-claro); }
+  tr { break-inside: avoid; }
+  td code { white-space: nowrap; }
+  .nota { font-size: 8pt; color: var(--cinza); }
+  .quebra { break-before: page; }
+  h2, h3 { break-after: avoid; }
+  .cartoes, .lado, .tres { break-inside: avoid; }
+  .figura { text-align: center; margin: 8px 0; break-inside: avoid; }
+  .figura img { max-width: 100%; border-radius: 6px; }
+  .figura .leg { font-size: 7.5pt; color: var(--cinza); margin-top: 2px; }
+  .capa { position: relative; margin-top: 4px; }
+  .capa img { width: 100%; border-radius: 8px; display: block; }
+  .capa .versao { position: absolute; right: 1.9%; top: 6.4%; width: 22.4%; height: 14.2%; border-radius: 8px;
+                  background: #3d5682; color: #fff; font-weight: 700; font-size: 9.5pt;
+                  display: flex; align-items: center; justify-content: center; }
+  .cartoes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 8px 0; }
+  .cartao { border-radius: 5px; padding: 6px 8px; color: #fff; min-height: 46px; }
+  .cartao b { display: block; font-size: 9pt; }
+  .cartao span { font-size: 7.4pt; opacity: .95; }
+  .lado { display: grid; grid-template-columns: 1.4fr 1fr; gap: 14px; align-items: start; }
+  .tres { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .tres img { width: 100%; border-radius: 6px; }
+  pre { background: #1f2428; color: #e6e6e6; font: 8pt/1.35 Consolas, "Courier New", monospace; padding: 8px 10px;
+        border-radius: 6px; margin: 6px 0 10px; white-space: pre; break-inside: avoid; }
+  pre .c { color: #8fbf7f; }
+  .colunas { columns: 2; column-gap: 14px; }
+  .colunas pre, .colunas table { break-inside: avoid; }
+  .destaque { border-left: 3px solid var(--verde-cab); background: #f4f9f1; padding: 6px 10px; margin: 8px 0; border-radius: 0 4px 4px 0; }
+  @media screen {
+    body { max-width: 900px; margin: 0 auto; padding: 0 18px 30px; }
+    .barra-site { display: flex; justify-content: space-between; gap: 10px; padding: 10px 0; font-size: 9.5pt; }
+    .barra-site a { color: var(--verde); font-weight: 600; text-decoration: none; }
+  }
+  @media print { .barra-site { display: none; } }
+</style>
+</head>
+<body>
+<nav class="barra-site"><a href="../">← WOSVIP Launcher</a><a href="ServidorPlus-Guia.pdf" download>Baixar o guia em PDF</a></nav>
+
+<!-- ======================= CAPA ======================= -->
+<div class="pagina-topo"></div>
+<div class="capa">
+  <img src="img/capa.png" alt="ServidorPlus">
+  <div class="versao">Versão de 14/11/2026</div>
+</div>
+<h1>ServidorPlus</h1>
+<p class="sub">Mod de servidor para Minecraft Java 26.3 · Fabric</p>
+<p class="sub">Guia completo: o que o mod faz e todos os comandos</p>
+
+<div class="caixa-novidades">
+  <b class="tit">★ Novidades desta versão</b>
+  <ul>
+    <li><b>Morph (VIP)</b>: vire qualquer mob do jogo com a tecla <b>G</b> e use o poder dele com a tecla <b>V</b> (bola de fogo, teleporte, laser, voo...). Virou monstro, os monstros não te atacam.</li>
+    <li><b>Durabilidade na tela</b>: durabilidade colorida da armadura e dos itens, flechas, espaços livres e tempo das poções, com aviso de item quebrando. Tecla <b>H</b> mostra/esconde.</li>
+    <li><b>Sodium embutido</b> e nova página <b>Melhor desempenho (FPS)</b> com os ajustes que dobraram o FPS no teste.</li>
+    <li><b>Mod Menu embutido</b>: na pasta mods basta o Fabric API e o ServidorPlus. O botão "Mods" já vem junto.</li>
+  </ul>
+</div>
+
+<h2>O que o mod faz</h2>
+<ul>
+  <li><b>Homes</b> – salve casas no Mundo Normal, no Nether e no End e volte quando quiser.</li>
+  <li><b>Warps, spawn e /back</b> – pontos de teleporte criados pelo admin e retorno ao último local.</li>
+  <li><b>TPA</b> – peça para ir até outro jogador ou chame ele até você.</li>
+  <li><b>Kits</b> – inicial, minerador e VIP (netherite com encantamentos PRO).</li>
+  <li><b>Economia</b> – dinheiro do jogo, recompensa diária, dinheiro por mob e por pesca, pagamentos e ranking dos mais ricos.</li>
+  <li><b>Loja</b> – compra e venda de mais de mil itens, livros encantados, gerador de mobs e ovos, com preços equilibrados pelas receitas do jogo.</li>
+  <li><b>Loja de jogador</b> – cada jogador cria a sua loja com placa e baú (trancado só para ele) e pode abrir uma loja pública para visitas.</li>
+  <li><b>Casas modernas</b> – compre uma casa pequena, média ou grande, construída na hora e protegida.</li>
+  <li><b>Habilidades</b> – sete habilidades que sobem de nível com o uso e liberam tesouros (agora com Pescador).</li>
+  <li><b>Macros</b> – automatize pesca, farm, PvP, baús e craft com um script e uma tecla.</li>
+  <li><b>Minimapa</b> – mapa no canto da tela, configurável por cada jogador.</li>
+  <li><b>Morph (VIP)</b> <span class="novo">NOVO</span> – vire qualquer mob, com os poderes e o tamanho dele.</li>
+  <li><b>Durabilidade na tela</b> <span class="novo">NOVO</span> – durabilidade da armadura e das ferramentas, flechas, espaços livres e tempo das poções.</li>
+  <li><b>VIP</b> – planos de 3 horas, 7 dias e 1 mês, com /craft, /fornalha, /bau, /voar, morph, geradores e outras vantagens.</li>
+  <li><b>Limpeza do chão</b> – aviso na tela e contagem regressiva antes de remover os itens do chão.</li>
+</ul>
+
+<h2>Instalação</h2>
+<p>Você só precisa baixar <b>um arquivo</b>: o <b>servidorplus</b> (.jar), grátis no site da wosvip®. Precisa ter o Minecraft Java original.</p>
+<h3>Jeito fácil: pelo WOSVIP Launcher</h3>
+<ol>
+  <li>No launcher, crie ou escolha uma instalação <b>Fabric 26.3</b>.</li>
+  <li>O launcher instala o Fabric e o <b>Fabric API</b>. Coloque o arquivo <b>servidorplus</b> na pasta mods dessa instalação (botão de abrir a pasta no launcher).</li>
+  <li>Clique em <b>Jogar</b> e digite <code>/ajuda</code> no chat.</li>
+</ol>
+<h3>Jeito manual</h3>
+<ol>
+  <li>Instale o <b>Fabric</b> para o Minecraft <b>26.3</b> (instalador em fabricmc.net).</li>
+  <li>Baixe o <b>Fabric API</b> para 26.3 (Modrinth ou CurseForge).</li>
+  <li>Coloque os dois arquivos na pasta <code>mods</code> do jogo: <b>servidorplus</b> e <b>Fabric API</b>. Só esses dois: o <b>Mod Menu</b> e o <b>Sodium</b> já vêm dentro do ServidorPlus <span class="novo">NOVO</span>.<br><span class="nota">Para achar a pasta: aperte <b>Windows + R</b>, digite <code>%appdata%\.minecraft\mods</code> e dê Enter.</span></li>
+  <li>Abra o jogo com o perfil <b>Fabric</b> e digite <code>/ajuda</code> no chat.</li>
+</ol>
+<h3>Para quem tem servidor</h3>
+<p>Coloque os mesmos dois arquivos (servidorplus e Fabric API) na pasta <code>mods</code> do servidor Fabric 26.3 (o servidor precisa do Java 25). O <b>minimapa</b>, as <b>macros</b>, a <b>durabilidade na tela</b> e o <b>morph</b> rodam no jogo de quem joga: quem quiser usar coloca o mod no próprio jogo. Quem não instalar entra no servidor normalmente, só não tem essas partes.</p>
+<p class="nota">Os comandos de jogador funcionam sem cheats. Só os comandos de admin precisam de OP (no servidor: <code>op SeuNome</code> no console; no single player: criar o mundo com cheats ativados).</p>
+
+<!-- ======================= COMANDOS ======================= -->
+<h2>Comandos dos jogadores</h2>
+<h3>Homes, warps e teleporte</h3>
+<table>
+  <tr><th style="width:36%">Comando</th><th>O que faz</th></tr>
+  <tr><td><code>/ajuda</code></td><td>Mostra a lista de comandos</td></tr>
+  <tr><td><code>/sethome [nome]</code></td><td>Salva uma home onde você está (Mundo Normal, Nether ou End)</td></tr>
+  <tr><td><code>/home [nome]</code></td><td>Teleporta para a home</td></tr>
+  <tr><td><code>/homes</code></td><td>Lista suas homes e em qual mundo estão</td></tr>
+  <tr><td><code>/delhome &lt;nome&gt;</code></td><td>Apaga uma home</td></tr>
+  <tr><td><code>/warp &lt;nome&gt;</code></td><td>Vai para uma warp</td></tr>
+  <tr><td><code>/warps</code></td><td>Lista as warps do servidor</td></tr>
+  <tr><td><code>/spawn</code></td><td>Vai para o spawn</td></tr>
+  <tr><td><code>/back</code></td><td>Volta para o último local antes do teleporte</td></tr>
+  <tr><td><code>/tpa &lt;jogador&gt;</code></td><td>Pede para ir até outro jogador</td></tr>
+  <tr><td><code>/tpahere &lt;jogador&gt;</code></td><td>Chama o jogador até você</td></tr>
+  <tr><td><code>/tpaccept</code></td><td>Aceita o pedido de teleporte</td></tr>
+  <tr><td><code>/tpdeny</code></td><td>Recusa o pedido de teleporte</td></tr>
+</table>
+
+<h3>Kits, dinheiro, loja e VIP</h3>
+<table>
+  <tr><th style="width:36%">Comando</th><th>O que faz</th></tr>
+  <tr><td><code>/kit</code> ou <code>/kits</code></td><td>Mostra os kits e quando cada um fica disponível</td></tr>
+  <tr><td><code>/kit inicial</code></td><td>Kit iniciante (uma vez só)</td></tr>
+  <tr><td><code>/kit minerador</code></td><td>Kit de mineração (a cada 12 horas)</td></tr>
+  <tr><td><code>/kit vip</code></td><td>Resgate VIP: XP, ouro, diamantes, maçãs e mais (3h: 1 vez por ativação; 7d e 1m: semanal)</td></tr>
+  <tr><td><code>/diario</code></td><td>Resgata o dinheiro diário</td></tr>
+  <tr><td><code>/saldo [jogador]</code></td><td>Mostra o seu saldo ou o de outro jogador</td></tr>
+  <tr><td><code>/pagar &lt;jogador&gt; &lt;valor&gt;</code></td><td>Transfere dinheiro para outro jogador</td></tr>
+  <tr><td><code>/top</code></td><td>Ranking dos 10 mais ricos</td></tr>
+  <tr><td><code>/recompensas</code></td><td>Tabela de quanto cada mob paga e quanto vale cada pesca</td></tr>
+  <tr><td><code>/loja</code></td><td>Ajuda da loja e preço do item na sua mão</td></tr>
+  <tr><td><code>/loja comprar &lt;item&gt; [qtd]</code></td><td>Compra qualquer item (ex.: /loja comprar diamond 5)</td></tr>
+  <tr><td><code>/loja comprar spawner</code></td><td>Compra um gerador de mobs vazio ($50.000). Use um ovo nele para escolher o mob</td></tr>
+  <tr><td><code>/ovos</code></td><td>Tabela de preços dos ovos de mob, agrupada por preço</td></tr>
+  <tr><td><code>/ovo comprar &lt;mob&gt; [qtd]</code></td><td>Compra o ovo (ex.: /ovo comprar cow · /ovo comprar blaze 2). O Tab completa o nome</td></tr>
+  <tr><td><code>/loja preco &lt;item&gt;</code></td><td>Mostra o preço de compra e venda</td></tr>
+  <tr><td><code>/loja buscar &lt;texto&gt;</code></td><td>Procura itens pelo nome</td></tr>
+  <tr><td><code>/vender mao [qtd]</code></td><td>Vende o item da mão (tudo ou só a quantidade escolhida)</td></tr>
+  <tr><td><code>/vender tudo</code></td><td>Vende tudo do inventário (menos itens encantados, gastos e de kit)</td></tr>
+  <tr><td><code>/loja valor &lt;item&gt;</code></td><td>Mostra o preço e de onde ele veio (matéria-prima ou receita)</td></tr>
+  <tr><td><code>/loja livros</code></td><td>Lista os livros encantados e preços</td></tr>
+  <tr><td><code>/loja livro &lt;encantamento&gt; &lt;nível&gt;</code></td><td>Compra um livro encantado (ex.: /loja livro afiacao 5)</td></tr>
+  <tr><td><code>/placa</code></td><td>Explica como criar a sua loja com placa</td></tr>
+  <tr><td><code>/placa criar &lt;qtd&gt; &lt;preçoVenda&gt; &lt;preçoCompra&gt;</code></td><td>Cria sua loja (segure o item e clique na placa)</td></tr>
+  <tr><td><code>/placa lista</code> · <code>/placa cancelar</code></td><td>Lista suas lojas / cancela a criação</td></tr>
+  <tr><td><code>/sethome loja</code> · <code>/loja loja</code></td><td>Marca o local da sua loja pública e abre para visitas</td></tr>
+  <tr><td><code>/loja fechar</code></td><td>Fecha a loja pública para visitas (a área continua protegida)</td></tr>
+  <tr><td><code>/loja visitar &lt;jogador&gt;</code></td><td>Vai até a loja pública de um jogador (ou /&lt;jogador&gt; loja)</td></tr>
+  <tr><td><code>/comprar casa &lt;pequena|media|grande&gt;</code></td><td>Compra uma casa moderna construída à sua frente</td></tr>
+  <tr><td><code>/casa permitir</code> · <code>/casa remover</code></td><td>Dá ou tira o acesso de um jogador às suas casas</td></tr>
+  <tr><td><code>/casa lista</code> · <code>/casa ir [nº]</code></td><td>Lista suas casas / vai até a porta da casa</td></tr>
+  <tr><td><code>/casa abandonar &lt;nº&gt;</code></td><td>Tira a proteção de uma casa (sem reembolso)</td></tr>
+  <tr><td><code>/comprar trap &lt;mob&gt;</code></td><td>Compra uma trap de mob pronta com 10 geradores ($250.000)</td></tr>
+  <tr><td><code>/trap lista</code> · <code>/trap ir [nº]</code></td><td>Lista suas traps / vai até uma delas</td></tr>
+  <tr><td><code>/iteminfo</code></td><td>Mostra o código (#1) e o preço sugerido do item da mão</td></tr>
+  <tr><td><code>/vip</code></td><td>Mostra os planos e o tempo restante do seu VIP</td></tr>
+  <tr><td><code>/vip comprar 3h | 7d | 1m</code></td><td>Compra VIP de 3 horas, 7 dias ou 1 mês</td></tr>
+</table>
+
+<h3>Habilidades, minimapa, macros e durabilidade</h3>
+<table>
+  <tr><th style="width:36%">Comando</th><th>O que faz</th></tr>
+  <tr><td><code>/habilidades</code> (ou <code>/skills</code>, <code>/hab</code>)</td><td>Mostra os seus níveis nas sete habilidades</td></tr>
+  <tr><td><code>/habilidades &lt;jogador&gt;</code></td><td>Mostra os níveis de outro jogador</td></tr>
+  <tr><td><code>/habilidades info &lt;habilidade&gt;</code></td><td>Tesouros da habilidade, nível necessário e chance de cada um</td></tr>
+  <tr><td><code>/habilidades top &lt;habilidade&gt;</code></td><td>Ranking da habilidade</td></tr>
+  <tr><td><code>/minimapa</code></td><td>Mostra a configuração do seu minimapa e as opções (só com o mod instalado no jogo)</td></tr>
+  <tr><td><code>/macros</code></td><td>Abre a tela de macros (também em Opções &gt; Macros...). Só com o mod instalado no jogo</td></tr>
+  <tr><td><code>/durabilidade</code> <span class="novo">NOVO</span></td><td>Opções da durabilidade na tela (tecla <b>H</b> mostra/esconde). Só com o mod instalado no jogo</td></tr>
+</table>
+
+<h2>Comandos exclusivos VIP</h2>
+<table>
+  <tr><th style="width:36%">Comando</th><th>O que faz</th></tr>
+  <tr><td><code>/craft</code> ou <code>/bancada</code></td><td>Abre uma bancada de trabalho em qualquer lugar</td></tr>
+  <tr><td><code>/fornalha</code></td><td>Abre uma fornalha que funde na hora, sem carvão, e dá o XP ao tirar os itens</td></tr>
+  <tr><td><code>/bau</code></td><td>Abre o seu baú VIP duplo: 54 espaços, só seu</td></tr>
+  <tr><td><code>/voar</code> ou <code>/fly</code></td><td>Liga/desliga o voo: pule duas vezes para voar</td></tr>
+  <tr><td><code>/visao</code></td><td>Liga/desliga a visão noturna</td></tr>
+  <tr><td><code>/pvp</code></td><td>Liga/desliga o PvP: com ele desligado ninguém te ataca (e você não ataca)</td></tr>
+  <tr><td>Bloco de ferro</td><td>Clique direito com o item gasto: repara gastando 1 bloco do material</td></tr>
+  <tr><td>Picareta de netherite</td><td>Quebra um gerador de mobs e ele cai como item, guardando o mob</td></tr>
+  <tr><td><code>/morph</code> ou tecla <b>G</b> <span class="novo">NOVO</span></td><td>Abre o menu de morph com todos os mobs (busca por nome)</td></tr>
+  <tr><td><code>/morph virar &lt;mob&gt;</code> <span class="novo">NOVO</span></td><td>Vira o mob (nome em português ou inglês: zumbi, esqueleto, blaze...). O Tab completa</td></tr>
+  <tr><td>Tecla <b>V</b> <span class="novo">NOVO</span></td><td>Usa o poder do mob (no Creeper: segure e solte)</td></tr>
+  <tr><td><code>/morph sair</code> <span class="novo">NOVO</span></td><td>Volta ao normal (ou o botão "Voltar ao normal" no menu)</td></tr>
+</table>
+
+<h2>Comandos de admin (OP)</h2>
+<table>
+  <tr><th style="width:36%">Comando</th><th>O que faz</th></tr>
+  <tr><td><code>/vip dar &lt;jogador&gt; &lt;3h|7d|1m&gt;</code></td><td>Dá VIP (ex.: para quem pagou em dinheiro real)</td></tr>
+  <tr><td><code>/vip remover &lt;jogador&gt;</code></td><td>Remove o VIP</td></tr>
+  <tr><td><code>/eco dar &lt;jogador&gt; &lt;valor&gt;</code></td><td>Adiciona dinheiro</td></tr>
+  <tr><td><code>/eco tirar &lt;jogador&gt; &lt;valor&gt;</code></td><td>Retira dinheiro</td></tr>
+  <tr><td><code>/eco definir &lt;jogador&gt; &lt;valor&gt;</code></td><td>Define o saldo exato</td></tr>
+  <tr><td><code>/setspawn</code></td><td>Define o spawn do servidor (área protegida em volta)</td></tr>
+  <tr><td><code>/spawnraio &lt;blocos&gt;</code></td><td>Tamanho da área protegida do spawn (0 = desliga)</td></tr>
+  <tr><td><code>/setwarp &lt;nome&gt;</code></td><td>Cria uma warp (pode ser no Nether e no End)</td></tr>
+  <tr><td><code>/delwarp &lt;nome&gt;</code></td><td>Apaga uma warp</td></tr>
+  <tr><td><code>/loja definir &lt;item&gt; &lt;compra&gt; &lt;venda&gt;</code></td><td>Preço manual (a venda tem que ser menor que a compra)</td></tr>
+  <tr><td><code>/loja auto &lt;item&gt;</code></td><td>Volta o item para o preço automático</td></tr>
+  <tr><td><code>/loja analise</code></td><td>Confere todas as receitas e mostra se existe brecha de lucro</td></tr>
+  <tr><td><code>/habilidades definir &lt;jogador&gt; &lt;habilidade&gt; &lt;nível&gt;</code></td><td>Define o nível de uma habilidade de um jogador</td></tr>
+  <tr><td><code>/morph liberar &lt;jogador&gt; &lt;mob|todos&gt;</code> <span class="novo">NOVO</span></td><td>Libera morph para um jogador (usado com <code>morphPorAbate</code> ou sem VIP)</td></tr>
+  <tr><td><code>/morph tirar &lt;jogador&gt; &lt;mob|todos&gt;</code> <span class="novo">NOVO</span></td><td>Tira morphs liberados de um jogador</td></tr>
+  <tr><td><code>/limparchao</code></td><td>Inicia a limpeza do chão na hora</td></tr>
+  <tr><td><code>/servidorplus reload</code></td><td>Recarrega os arquivos de configuração</td></tr>
+</table>
+
+<!-- ======================= HABILIDADES ======================= -->
+<h2>Habilidades</h2>
+<p>Sete habilidades sobem de nível com o uso, no estilo do mcMMO. A cada <b>500 XP</b> você sobe 1 nível, sem limite. Cada nível libera tesouros novos e aumenta a chance deles cair.</p>
+<div class="cartoes">
+  <div class="cartao" style="background:#2a8fa8"><b>⛏ Minerador</b><span>Pedra e minérios com picareta</span></div>
+  <div class="cartao" style="background:#d98a1c"><b>⚒ Escavador</b><span>Terra, areia, cascalho, argila e areia das almas</span></div>
+  <div class="cartao" style="background:#4aa04a"><b>❀ Plantação</b><span>Colheitas maduras, melancias e abóboras</span></div>
+  <div class="cartao" style="background:#c9a21c"><b>♞ Agricultor</b><span>Reproduzir, tosquiar e abater animais de criação adultos</span></div>
+  <div class="cartao" style="background:#2e6e2e"><b>♣ Lenhador</b><span>Cortar troncos de árvores</span></div>
+  <div class="cartao" style="background:#c0393b"><b>⚔ Combate</b><span>Matar monstros e jogadores (PvP)</span></div>
+  <div class="cartao" style="background:#1f6f8b"><b>🎣 Pescador</b><span>Pescar peixes, tesouros e lixo com a vara</span></div>
+</div>
+<div class="figura">
+  <img src="img/subiu-nivel.png" alt="Subiu de nível">
+  <div class="leg">Ao minerar, a barra acima da hotbar mostra o nível, o progresso e o XP ganho. Ao subir de nível aparece o título e os tesouros novos no chat.</div>
+</div>
+
+<h3>Como funciona</h3>
+<ul>
+  <li>A barra mostra o XP total e quanto falta para o próximo nível: 320/500, 520/1000, 1200/1500...</li>
+  <li>Tesouros têm a chance multiplicada conforme o nível, até <b>3x no nível 100</b>. Depois disso o bônus fica fixo e o nível continua subindo.</li>
+  <li>Minério, tronco, colheita e peixe têm chance de <b>drop duplo</b>, até 25% no nível 100.</li>
+  <li>Blocos colocados por jogadores não dão XP nem tesouro (não adianta colocar e quebrar). Plantação só conta colheita madura.</li>
+  <li>PvP dá XP de Combate, mas matar a mesma pessoa só conta de novo depois de 10 minutos.</li>
+  <li>A cada 10 níveis, todo o servidor recebe o anúncio no chat.</li>
+</ul>
+
+<h3>Quanto XP cada ação dá</h3>
+<table>
+  <tr><th style="width:16%">Habilidade</th><th>XP por ação</th></tr>
+  <tr><td>Minerador</td><td>pedra 1 · cobre 4 · carvão 5 · obsidiana 5 · ouro e quartzo do Nether 6 · redstone 7 · ferro 8 · lápis 10 · ouro 12 · diamante 40 · esmeralda 50 · detrito ancestral 80</td></tr>
+  <tr><td>Escavador</td><td>terra, grama, areia, lama e neve 1 · podzol, micélio e cascalho 2 · areia das almas 3 · argila 4</td></tr>
+  <tr><td>Plantação</td><td>trigo, cenoura, batata e beterraba maduros 3 · fungo do Nether, cacau, melancia e abóbora 4</td></tr>
+  <tr><td>Agricultor</td><td>abater animal adulto 2 · tosquiar 3 · reproduzir 6</td></tr>
+  <tr><td>Lenhador</td><td>cada tronco 4</td></tr>
+  <tr><td>Combate</td><td>zumbi 6 · esqueleto 7 · creeper 8 · bruxa 10 · enderman e blaze 12 · esqueleto wither 15 · evocador 25 · PvP 25 · guardião ancião 100 · warden 200 · wither 300 · dragão 500 · outros 5</td></tr>
+  <tr><td>Pescador</td><td>lixo 4 · peixe 10 · tesouro 25 · tesouro encantado 40</td></tr>
+</table>
+
+<h2>Tesouros de cada habilidade</h2>
+<p class="nota">Nível em que libera · tesouro · chance no nível de liberação (a chance cresce até 3x no nível 100). Só cai 1 tesouro por bloco, mob ou pesca.</p>
+<div class="colunas">
+<h3>⛏ Minerador</h3>
+<table>
+  <tr><th>Nv</th><th>Tesouro</th><th>Onde</th><th>Chance</th></tr>
+  <tr><td>1</td><td>Carvão</td><td>pedra</td><td>1,5%</td></tr>
+  <tr><td>5</td><td>Lingote de cobre</td><td>pedra</td><td>0,8%</td></tr>
+  <tr><td>10</td><td>Lingote de ferro</td><td>pedra</td><td>0,6%</td></tr>
+  <tr><td>15</td><td>Redstone</td><td>pedra</td><td>1%</td></tr>
+  <tr><td>20</td><td>Lápis-lazúli</td><td>pedra</td><td>0,8%</td></tr>
+  <tr><td>25</td><td>Lingote de ouro</td><td>pedra</td><td>0,4%</td></tr>
+  <tr><td>30</td><td>Fragmento de ametista</td><td>pedra</td><td>0,5%</td></tr>
+  <tr><td>40</td><td>Esmeralda</td><td>pedra</td><td>0,12%</td></tr>
+  <tr><td>50</td><td>Diamante</td><td>pedra</td><td>0,1%</td></tr>
+  <tr><td>1</td><td>Quartzo do Nether</td><td>Nether</td><td>2%</td></tr>
+  <tr><td>5</td><td>Pepita de ouro</td><td>Nether</td><td>2%</td></tr>
+  <tr><td>10</td><td>Pó de pedra luminosa</td><td>Nether</td><td>1%</td></tr>
+  <tr><td>20</td><td>Creme de magma</td><td>Nether</td><td>0,5%</td></tr>
+  <tr><td>30</td><td>Pó de blaze</td><td>Nether</td><td>0,3%</td></tr>
+  <tr><td>90</td><td>Fragmento de netherite</td><td>Nether</td><td>0,01%</td></tr>
+  <tr><td>10</td><td>Fruta do coro</td><td>End</td><td>1%</td></tr>
+  <tr><td>30</td><td>Pérola do End</td><td>End</td><td>0,3%</td></tr>
+</table>
+<h3>♣ Lenhador</h3>
+<table>
+  <tr><th>Nv</th><th>Tesouro</th><th>Chance</th></tr>
+  <tr><td>1</td><td>Graveto</td><td>3%</td></tr>
+  <tr><td>1</td><td>Maçã</td><td>1,5%</td></tr>
+  <tr><td>15</td><td>Favo de mel</td><td>0,5%</td></tr>
+  <tr><td>40</td><td>Maçã dourada</td><td>0,05%</td></tr>
+</table>
+<h3>♞ Agricultor (ao abater animais)</h3>
+<table>
+  <tr><th>Nv</th><th>Tesouro</th><th>Chance</th></tr>
+  <tr><td>1</td><td>Couro · Pena</td><td>4%</td></tr>
+  <tr><td>5</td><td>Ovo</td><td>3%</td></tr>
+  <tr><td>15</td><td>Laço</td><td>0,8%</td></tr>
+  <tr><td>25</td><td>Cenoura dourada</td><td>0,5%</td></tr>
+  <tr><td>30</td><td>Sela</td><td>0,4%</td></tr>
+  <tr><td>50</td><td>Etiqueta</td><td>0,2%</td></tr>
+</table>
+<h3>⚒ Escavador</h3>
+<table>
+  <tr><th>Nv</th><th>Tesouro</th><th>Onde</th><th>Chance</th></tr>
+  <tr><td>1</td><td>Pederneira</td><td>cascalho</td><td>3%</td></tr>
+  <tr><td>1</td><td>Bola de argila</td><td>terra, areia</td><td>2%</td></tr>
+  <tr><td>5</td><td>Linha</td><td>todos</td><td>1,5%</td></tr>
+  <tr><td>5</td><td>Maçã</td><td>terra</td><td>1%</td></tr>
+  <tr><td>10</td><td>Pó de pedra luminosa</td><td>areia, terra</td><td>1,5%</td></tr>
+  <tr><td>10</td><td>Osso</td><td>cascalho, terra</td><td>2%</td></tr>
+  <tr><td>10</td><td>Quartzo do Nether</td><td>areia das almas</td><td>2%</td></tr>
+  <tr><td>15</td><td>Pólvora</td><td>cascalho</td><td>1,5%</td></tr>
+  <tr><td>15</td><td>Bola de slime</td><td>argila</td><td>3%</td></tr>
+  <tr><td>15</td><td>Pepita de ouro</td><td>todos</td><td>1%</td></tr>
+  <tr><td>20</td><td>Teia</td><td>areia, argila</td><td>0,8%</td></tr>
+  <tr><td>25</td><td>Redstone</td><td>todos</td><td>1%</td></tr>
+  <tr><td>40</td><td>Esmeralda</td><td>todos</td><td>0,1%</td></tr>
+  <tr><td>50</td><td>Lágrima de ghast</td><td>areia das almas</td><td>0,3%</td></tr>
+  <tr><td>60</td><td>Diamante</td><td>todos</td><td>0,08%</td></tr>
+  <tr><td>75</td><td>Bolo</td><td>terra</td><td>0,05%</td></tr>
+</table>
+<h3>❀ Plantação</h3>
+<table>
+  <tr><th>Nv</th><th>Tesouro</th><th>Chance</th></tr>
+  <tr><td>1</td><td>Farinha de osso</td><td>3%</td></tr>
+  <tr><td>10</td><td>Torta de abóbora</td><td>0,8%</td></tr>
+  <tr><td>20</td><td>Cenoura dourada</td><td>0,5%</td></tr>
+  <tr><td>30</td><td>Fatia de melancia reluzente</td><td>0,4%</td></tr>
+  <tr><td>40</td><td>Esmeralda</td><td>0,1%</td></tr>
+  <tr><td>50</td><td>Bolo</td><td>0,1%</td></tr>
+  <tr><td>60</td><td>Maçã dourada</td><td>0,05%</td></tr>
+</table>
+<h3>⚔ Combate (ao matar monstros)</h3>
+<table>
+  <tr><th>Nv</th><th>Tesouro</th><th>Chance</th></tr>
+  <tr><td>1</td><td>Osso · Flecha</td><td>4%</td></tr>
+  <tr><td>5</td><td>Pólvora · Linha</td><td>3%</td></tr>
+  <tr><td>20</td><td>Pérola do End</td><td>1%</td></tr>
+  <tr><td>25</td><td>Frasco de experiência</td><td>1,5%</td></tr>
+  <tr><td>30</td><td>Esmeralda</td><td>0,5%</td></tr>
+  <tr><td>45</td><td>Maçã dourada</td><td>0,2%</td></tr>
+  <tr><td>60</td><td>Diamante</td><td>0,15%</td></tr>
+</table>
+<h3>🎣 Pescador</h3>
+<table>
+  <tr><th>Nv</th><th>Tesouro</th><th>Chance</th></tr>
+  <tr><td>1</td><td>Bolsa de tinta</td><td>4%</td></tr>
+  <tr><td>1</td><td>Vitória-régia · Alga</td><td>3%</td></tr>
+  <tr><td>10</td><td>Fragmento de prismarinho</td><td>2%</td></tr>
+  <tr><td>15</td><td>Cristais de prismarinho</td><td>1,5%</td></tr>
+  <tr><td>20</td><td>Frasco de experiência</td><td>1,5%</td></tr>
+  <tr><td>25</td><td>Etiqueta · Sela</td><td>0,6%</td></tr>
+  <tr><td>30</td><td>Concha de náutilo</td><td>0,6%</td></tr>
+  <tr><td>35</td><td>Esmeralda</td><td>0,5%</td></tr>
+  <tr><td>45</td><td>Maçã dourada</td><td>0,2%</td></tr>
+  <tr><td>55</td><td>Diamante</td><td>0,15%</td></tr>
+  <tr><td>75</td><td>Coração do mar</td><td>0,05%</td></tr>
+  <tr><td>90</td><td>Tridente</td><td>0,02%</td></tr>
+</table>
+</div>
+
+<!-- ======================= PLACAR ======================= -->
+<h2>Placar e habilidade no painel lateral</h2>
+<div class="lado">
+  <div>
+    <p>No lado direito da tela aparece o placar com o seu nome, saldo e título. Se tiver VIP, mostra <b>VIP ativo</b> com o tempo restante, e também <b>Voar ativo</b>, <b>Visão ativa</b> e <b>PvP desligado</b> quando ligados.</p>
+    <p>Segurando uma ferramenta, o placar mostra a <b>habilidade dela</b> com nível e barra de progresso. Com outro item na mão, a linha some.</p>
+    <table>
+      <tr><th>Na mão</th><th>Habilidade</th></tr>
+      <tr><td>Picareta</td><td>⛏ Minerador</td></tr>
+      <tr><td>Pá</td><td>⚒ Escavador</td></tr>
+      <tr><td>Machado</td><td>♣ Lenhador</td></tr>
+      <tr><td>Enxada, sementes, cenoura, batata</td><td>❀ Plantação</td></tr>
+      <tr><td>Tesoura, trigo, balde, laço</td><td>♞ Agricultor</td></tr>
+      <tr><td>Espada, arco, besta, tridente, maça</td><td>⚔ Combate</td></tr>
+      <tr><td>Vara de pesca</td><td>🎣 Pescador</td></tr>
+    </table>
+  </div>
+  <div class="figura" style="margin-top:0">
+    <img src="img/placar.png" alt="Placar">
+    <div class="leg">Placar segurando uma picareta</div>
+  </div>
+</div>
+
+<h3>Títulos por saldo</h3>
+<p>O título aparece antes do nome (em cima da cabeça, no TAB e no chat). Quando alguém sobe de título, todos recebem o anúncio no chat. VIPs também ganham a tag [VIP].</p>
+<table>
+  <tr><th>Saldo a partir de</th><th>Título</th></tr>
+  <tr><td>$10.000</td><td>[Empreendedor]</td></tr>
+  <tr><td>$100.000</td><td>[Rico]</td></tr>
+  <tr><td>$1.000.000</td><td>[Milionário]</td></tr>
+  <tr><td>$10.000.000</td><td>[Multimilionário]</td></tr>
+  <tr><td>$100.000.000</td><td>[Magnata]</td></tr>
+  <tr><td>$1.000.000.000</td><td>[Bilionário]</td></tr>
+</table>
+
+<h2>Dinheiro por mob abatido</h2>
+<p>Matar mobs paga direto no saldo, e o valor aparece na barra junto com o XP da habilidade. Digite <code>/recompensas</code> para ver a tabela no jogo.</p>
+<div class="figura">
+  <img src="img/barra-combate.png" alt="Barra de combate">
+  <div class="leg">Matando um creeper com Combate no nível 21: $12 + 10% de bônus = $13,20</div>
+</div>
+<div class="tres" style="grid-template-columns: 1fr 1fr">
+<table>
+  <tr><th>Animais (adultos)</th><th>Paga</th></tr>
+  <tr><td>Bacalhau, salmão</td><td>$1</td></tr>
+  <tr><td>Galinha, coelho, lula</td><td>$2</td></tr>
+  <tr><td>Porco, vaca, ovelha, lula brilhante</td><td>$3</td></tr>
+  <tr><td>Cabra</td><td>$4</td></tr>
+  <tr><td>Coelho-cogumelo (mooshroom)</td><td>$5</td></tr>
+</table>
+<table>
+  <tr><th>Chefes e fortes</th><th>Paga</th></tr>
+  <tr><td>Evocador</td><td>$50</td></tr>
+  <tr><td>Devastador</td><td>$60</td></tr>
+  <tr><td>Guardião ancião</td><td>$300</td></tr>
+  <tr><td>Warden</td><td>$500</td></tr>
+  <tr><td>Wither</td><td>$1.500</td></tr>
+  <tr><td>Dragão do End</td><td>$3.000</td></tr>
+</table>
+</div>
+<table>
+  <tr><th>Monstros</th><th style="width:18%">Paga</th></tr>
+  <tr><td>Traça</td><td>$2</td></tr>
+  <tr><td>Slime, piglin zumbificado</td><td>$3</td></tr>
+  <tr><td>Cubo de magma</td><td>$4</td></tr>
+  <tr><td>Piglin</td><td>$6</td></tr>
+  <tr><td>Zumbi, husk, aldeão zumbi, aranha</td><td>$8</td></tr>
+  <tr><td>Esqueleto, afogado, aranha da caverna</td><td>$9</td></tr>
+  <tr><td>Stray, bogged, phantom</td><td>$10</td></tr>
+  <tr><td>Creeper</td><td>$12</td></tr>
+  <tr><td>Bruxa, saqueador, hoglin, zoglin, guardião</td><td>$15</td></tr>
+  <tr><td>Vingador</td><td>$18</td></tr>
+  <tr><td>Enderman, blaze, shulker</td><td>$20</td></tr>
+  <tr><td>Ghast, breeze</td><td>$25</td></tr>
+  <tr><td>Esqueleto wither, piglin bruto</td><td>$30</td></tr>
+  <tr><td>Outros monstros</td><td>$5</td></tr>
+</table>
+<ul>
+  <li><b>Bônus:</b> +0,5% por nível de Combate (monstros) ou Agricultor (animais). No nível 100 = +49,5%.</li>
+  <li><b>Limite</b> de $2.000 por hora por jogador (contra farms automáticas). Ao chegar no limite, o mod avisa quando volta a pagar.</li>
+  <li>Filhotes e PvP não pagam.</li>
+</ul>
+
+<h2>Dinheiro por pesca</h2>
+<p>Tudo que sai da água com a vara paga direto no saldo. O valor aparece na barra junto com o XP de Pescador, e os tesouros avisam no chat. A tabela também está no <code>/recompensas</code>.</p>
+<table>
+  <tr><th>O que pescou</th><th style="width:40%">Paga</th></tr>
+  <tr><td>Bacalhau · Salmão · Baiacu · Peixe tropical</td><td>$3 · $4 · $5 · $6</td></tr>
+  <tr><td>Lixo (bota velha, graveto, osso, vara gasta...)</td><td>$1</td></tr>
+  <tr><td>Tesouros: sela · etiqueta · concha de náutilo</td><td>$20 · $25 · $30</td></tr>
+  <tr><td>Tesouro encantado (livro, arco, vara)</td><td>$15 + $3 por nível de encantamento, até $30</td></tr>
+</table>
+<ul>
+  <li><b>Bônus:</b> +0,5% por nível de Pescador.</li>
+  <li><b>Limite</b> de $2.000 por hora por jogador com pesca (separado do limite dos mobs).</li>
+</ul>
+
+<!-- ======================= MINIMAPA ======================= -->
+<h2 class="quebra">Minimapa</h2>
+<p>Minimapa em alta resolução no canto da tela. Ele roda no jogo de cada jogador, então precisa do mod servidorplus na pasta mods do jogo (veja a Instalação). Funciona também no single player.</p>
+<div class="tres">
+  <div class="figura"><img src="img/minimapa-quadrado.png" alt=""><div class="leg">Quadrado, girando com você, jogadores com a cabeça e o nome</div></div>
+  <div class="figura"><img src="img/minimapa-redondo.png" alt=""><div class="leg">Redondo, norte para cima, mobs com cabecinhas</div></div>
+  <div class="figura"><img src="img/minimapa-caverna.png" alt=""><div class="leg">Modo caverna: embaixo da terra mostra a caverna em que você está</div></div>
+</div>
+<ul>
+  <li>Gira com você (sua seta sempre para cima) ou fica com o norte para cima.</li>
+  <li>Cores do mapa do Minecraft com relevo, e a água fica mais escura quanto mais funda.</li>
+  <li>Modo caverna: embaixo da terra (e no Nether) mostra a caverna em que você está.</li>
+  <li>Borda HD (quadrada ou redonda), N S L O na borda, coordenadas, bioma e hora embaixo.</li>
+  <li>Jogadores aparecem com a cabeça da skin e o nome; mobs com a cabecinha (vaca, galinha, zumbi...) ou como pontos.</li>
+</ul>
+<h3>Configurando o seu minimapa</h3>
+<p>Cada jogador configura o seu com <code>/minimapa</code>. A configuração fica salva em <code>config/servidorplus-minimapa.json</code>, no jogo do jogador.</p>
+<table>
+  <tr><th style="width:38%">Comando</th><th>O que faz</th><th style="width:16%">Padrão</th></tr>
+  <tr><td><code>/minimapa ligar | desligar</code></td><td>Mostra ou esconde o minimapa</td><td>ligado</td></tr>
+  <tr><td><code>/minimapa padrao</code></td><td>Volta tudo para o padrão</td><td>–</td></tr>
+  <tr><td><code>/minimapa canto &lt;canto&gt;</code></td><td>superior_esquerdo, superior_direito, inferior_esquerdo ou inferior_direito</td><td>superior esquerdo</td></tr>
+  <tr><td><code>/minimapa tamanho &lt;64-256&gt;</code></td><td>Tamanho do mapa em pixels</td><td>128</td></tr>
+  <tr><td><code>/minimapa zoom &lt;1-8&gt;</code></td><td>1 = mais perto, 8 = mais longe</td><td>1</td></tr>
+  <tr><td><code>/minimapa formato quadrado | redondo</code></td><td>Formato da borda</td><td>quadrado</td></tr>
+  <tr><td><code>/minimapa rotacionar sim | nao</code></td><td>O mapa gira com você</td><td>sim</td></tr>
+  <tr><td><code>/minimapa cavernas sim | nao</code></td><td>Modo caverna embaixo da terra</td><td>sim</td></tr>
+  <tr><td><code>/minimapa coordenadas | direcoes | bioma | hora sim | nao</code></td><td>Informações na borda e embaixo do mapa</td><td>sim (hora: não)</td></tr>
+  <tr><td><code>/minimapa jogadores | nomes sim | nao</code></td><td>Outros jogadores e o nome deles no mapa</td><td>sim</td></tr>
+  <tr><td><code>/minimapa mobs sim | nao</code></td><td>Mobs no mapa</td><td>não</td></tr>
+  <tr><td><code>/minimapa estilo cabeca | ponto</code></td><td>Mobs como cabecinha ou bolinha colorida</td><td>cabeça</td></tr>
+  <tr><td><code>/minimapa icones &lt;4-16&gt;</code></td><td>Tamanho das cabecinhas</td><td>8</td></tr>
+</table>
+
+<h2 class="quebra">Durabilidade na tela <span class="novo">NOVO</span></h2>
+<p>Painel no canto de baixo à direita com a durabilidade do que você está usando. Roda no jogo de cada jogador (precisa do mod servidorplus na pasta mods do jogo) e substitui o mod Durability Viewer.</p>
+<ul>
+  <li><b>Armadura e itens das mãos</b> com cor: <span style="color:#2e9d2e"><b>verde</b></span> (novo), branco, <span style="color:#c9a000"><b>amarelo</b></span> e <span style="color:#d32f2f"><b>vermelho</b></span> (quase quebrando). Acima de 80% mostra quanto já gastou (0 = novinho, -12...); abaixo, quanto resta.</li>
+  <li><b>Flechas</b>: segurando arco ou besta, mostra quantas flechas você tem.</li>
+  <li><b>Espaços livres</b>: um baú com o número de espaços vazios do inventário.</li>
+  <li><b>Tempo das poções</b>: embaixo de cada ícone de efeito, no canto de cima à direita.</li>
+  <li><b>Aviso de item quebrando</b>: toca um som (ou pisca a tela de vermelho) quando um item está quase acabando.</li>
+  <li><b>Tecla H</b> mostra/esconde (dá para trocar em Opções &gt; Controles &gt; Diversos).</li>
+</ul>
+<table>
+  <tr><th style="width:42%">Comando</th><th>O que faz</th><th style="width:16%">Padrão</th></tr>
+  <tr><td><code>/durabilidade</code></td><td>Mostra a configuração e as opções</td><td>–</td></tr>
+  <tr><td><code>/durabilidade ligar | desligar | padrao</code></td><td>Mostra, esconde ou volta ao padrão</td><td>ligado</td></tr>
+  <tr><td><code>/durabilidade canto &lt;canto&gt;</code></td><td>superior_esquerdo, superior_direito, inferior_esquerdo ou inferior_direito</td><td>inferior direito</td></tr>
+  <tr><td><code>/durabilidade aviso som | tela | ambos | nenhum</code></td><td>Como avisar o item quase quebrando</td><td>som</td></tr>
+  <tr><td><code>/durabilidade porcentagem sim | nao</code></td><td>Mostra em porcentagem (87.5%)</td><td>não</td></tr>
+  <tr><td><code>/durabilidade barra sim | nao</code></td><td>Armadura ao lado da barra de itens</td><td>não</td></tr>
+  <tr><td><code>/durabilidade espacos | efeitos sim | nao</code></td><td>Espaços livres · tempo das poções</td><td>sim</td></tr>
+</table>
+<p class="nota">Fica salvo em <code>config/servidorplus-durabilidade.json</code>, no jogo do jogador. Baseado no Durability Viewer (Giselbaer / fanta, licença MIT).</p>
+
+<h2 class="quebra">Morph (VIP) <span class="novo">NOVO</span></h2>
+<p>Quem tem <b>VIP ativo</b> pode virar <b>qualquer mob do jogo</b> (90 mobs), sem precisar matar nada. Os outros jogadores veem o mob no seu lugar, com o seu nome em cima. Quem não tem VIP vê o aviso para comprar no <code>/vip</code>. Precisa do mod instalado no jogo de cada jogador.</p>
+<ul>
+  <li><b>Tecla G</b> (ou <code>/morph</code>): abre o menu com o ovo de cada mob. Busque pelo nome e passe o mouse para ver os poderes. Clique para virar.</li>
+  <li><b>Tecla V</b>: usa o poder do mob. Cada poder tem um tempo de recarga.</li>
+  <li><b>Voltar ao normal</b>: botão no menu ou <code>/morph sair</code>. Ao sair do jogo ou quando o VIP acaba, você volta ao normal sozinho.</li>
+  <li>Você fica com a <b>vida</b>, o <b>tamanho</b> e (cavalos e voadores) a <b>velocidade</b> do mob. A armadura fica invisível, mas continua protegendo.</li>
+  <li><b>Disfarce</b>: virou um monstro (zumbi, esqueleto, creeper, aranha...), os monstros não te atacam, a não ser que você bata neles. Chefes (Wither, Warden, Dragão) não caem no disfarce.</li>
+  <li><b>Voo</b>: Ghast, Phantom, Morcego, Abelha, Allay, Vex, Wither e Dragão voam (pulo sobe, agachar desce); o Blaze flutua. Ninguém é expulso por voar.</li>
+  <li>O PvP desligado (VIP) e o spawn protegido continuam valendo. As explosões e o fogo dos morphs <b>não quebram nem queimam blocos</b>.</li>
+</ul>
+<h3>Alguns poderes (tecla V)</h3>
+<table>
+  <tr><th style="width:30%">Mob</th><th>Poder e passivo</th></tr>
+  <tr><td>Creeper</td><td>Segure V para carregar e solte: explosão. Imune a explosões</td></tr>
+  <tr><td>Enderman</td><td>Teleporta para frente. Desvia de flechas às vezes (a água machuca)</td></tr>
+  <tr><td>Blaze · Ghast</td><td>Bola de fogo · explosão na mira. Blaze não pega fogo e flutua; Ghast voa</td></tr>
+  <tr><td>Esqueleto · Stray · Bogged</td><td>Flecha certeira · flecha que deixa lento · flecha envenenada</td></tr>
+  <tr><td>Afogado · Guardião</td><td>Tridente · laser. Respiram e nadam rápido na água</td></tr>
+  <tr><td>Bruxa · Evocador · Breeze</td><td>Poção aleatória · linha de presas · carga de vento</td></tr>
+  <tr><td>Aranha · Slime/Magma</td><td>Sobe paredes · pulo gigante sem dano de queda</td></tr>
+  <tr><td>Warden · Wither · Dragão</td><td>Rajada sônica · 3 caveiras · bafo do dragão (força de chefe)</td></tr>
+  <tr><td>Abelha · Allay · Devastador</td><td>Ferrão venenoso · puxa os itens do chão · atropela quem está perto</td></tr>
+</table>
+<p class="nota">Fraquezas: zumbi, esqueleto e phantom queimam no sol (capacete protege), Enderman leva dano na água e o Shulker se teleporta na água. Baseado no Ultimate Morph Mod (balli, CC0).</p>
+
+<!-- ======================= DESEMPENHO ======================= -->
+<h2 class="quebra">Melhor desempenho (FPS) <span class="novo">NOVO</span></h2>
+<p>O jogo travando ou com pouco FPS? Estes ajustes são <b>opcionais</b> e foram testados num PC com placa de vídeo de entrada (GeForce MX110): o FPS subiu de <b>25 para 54</b>, mais que o dobro. Faça um de cada vez e veja quanto melhora no seu PC.</p>
+<table>
+  <tr><th style="width:24%">Ajuste</th><th style="width:27%">Onde mudar</th><th style="width:17%">Recomendado</th><th>Por quê / ganho medido</th></tr>
+  <tr><td><b>Pacote 3D Default</b></td><td>Opções &gt; Pacotes de recursos</td><td>Desativar</td><td>Deixa blocos e itens em 3D e pesa muito. <b>25 → 43 FPS</b></td></tr>
+  <tr><td><b>Faithful 64x</b> (ou outro pacote HD)</td><td>Opções &gt; Pacotes de recursos</td><td>Trocar por 32x ou usar o padrão</td><td>Texturas grandes gastam a memória da placa. <b>46 → 54 FPS</b></td></tr>
+  <tr><td><b>Nuvens</b></td><td>Opções &gt; Vídeo</td><td>Rápidas ou Desligadas</td><td>Nuvens elegantes pesam no céu aberto. <b>43 → 46 FPS</b></td></tr>
+  <tr><td><b>Distância de renderização</b></td><td>Opções &gt; Vídeo</td><td>8 a 10 chunks</td><td>Cada chunk a mais é muito mais coisa para desenhar</td></tr>
+  <tr><td><b>Limite de FPS</b></td><td>Opções &gt; Vídeo</td><td>60</td><td>Evita esquentar à toa e deixa o FPS mais estável</td></tr>
+  <tr><td><b>Gráficos</b></td><td>Opções &gt; Vídeo</td><td>Rápido</td><td>Folhas e sombras mais leves</td></tr>
+  <tr><td><b>Sodium</b></td><td>Já vem no ServidorPlus</td><td>Manter</td><td>Motor de gráficos mais rápido. Aparece no F3 como "Sodium Renderer"</td></tr>
+  <tr><td><b>Placa de vídeo</b></td><td>F3 (lado direito)</td><td>Deve aparecer a NVIDIA/AMD</td><td>Se mostrar "Intel", o jogo está na placa mais fraca. Troque em Configurações do Windows &gt; Sistema &gt; Tela &gt; Elementos gráficos</td></tr>
+  <tr><td><b>Memória do jogo</b></td><td>WOSVIP Launcher &gt; Configurações</td><td>4 GB</td><td>Mais memória não dá mais FPS. Com 6 GB o jogo usou só cerca de 0,9 GB</td></tr>
+  <tr><td><b>Tela cheia</b></td><td>WOSVIP Launcher &gt; Configurações</td><td>Opcional</td><td>Em alguns PCs dá um pouco mais de FPS</td></tr>
+</table>
+<div class="destaque"><b>Como medir:</b> aperte <b>F3</b> e olhe o número de <i>fps</i> no canto de cima à esquerda. Compare sempre no mesmo lugar e olhando para o mesmo lado, porque olhar para uma parede dá muito mais FPS que um campo aberto.</div>
+<p class="nota">Os valores de distância, limite de FPS e gráficos não foram medidos no teste; são as recomendações comuns para PCs mais simples.</p>
+
+<!-- ======================= MACROS ======================= -->
+<h2 class="quebra">Macros</h2>
+<p>Uma macro é uma lista de ações que o jogo faz sozinho quando você aperta uma tecla: pescar, matar mobs na trap, ir até o baú esvaziar o inventário, comer, reparar a espada, craftar... As macros rodam no seu jogo, então precisam do mod na pasta mods do jogo.</p>
+<h3>Criar uma macro</h3>
+<ol>
+  <li>Abra <b>Opções &gt; Macros...</b> (botão no canto de cima à esquerda) ou digite <code>/macros</code>.</li>
+  <li>Clique em <b>Nova macro</b>, dê um nome e clique no botão da <b>tecla</b> para escolher a tecla que liga a macro.</li>
+  <li>Marque <b>Repetir</b> para a macro rodar sem parar (pesca, farm, PvP). Desmarcado, ela roda uma vez só.</li>
+  <li>Escreva o script e clique em <b>Salvar</b>. O botão <b>?</b> mostra a lista de ações. Se tiver erro, a tela mostra a linha errada.</li>
+  <li>No jogo, aperte a tecla para <b>ligar</b> e aperte de novo para <b>desligar</b>.</li>
+</ol>
+<p>Já vêm prontas: <b>Pesca</b> (tecla K), <b>Farm de mobs</b> (tecla J) e <b>PvP</b> (tecla R).</p>
+<h3>Regras para escrever</h3>
+<ul>
+  <li>Uma ação por linha. Linhas com <code>#</code> são comentários. Linhas com <code>/</code> são comandos do servidor (ex.: <code>/home bau</code>).</li>
+  <li>Aceita português ou inglês: <code>usar</code> ou <code>use</code>, <code>esperar</code> ou <code>wait</code>, <code>se</code> ou <code>if</code>.</li>
+  <li>Itens pelo nome em inglês do jogo: <code>cod</code>, <code>golden_apple</code>, <code>wheat_seeds</code>, <code>iron_block</code>.</li>
+  <li>Tempo: <code>esperar 2</code> = 2 segundos · <code>1.5s</code> · <code>500ms</code> · <code>10t</code> (20 ticks = 1 segundo).</li>
+  <li>Blocos <code>se</code>, <code>enquanto</code> e <code>repetir</code> sempre terminam com <code>fim</code>. Até 300 linhas por macro.</li>
+</ul>
+<h3>Ações</h3>
+<table>
+  <tr><th style="width:34%">Ação (inglês)</th><th>O que faz</th></tr>
+  <tr><td><code>/comando</code></td><td>Envia um comando do servidor</td></tr>
+  <tr><td><code>falar texto</code> (say) · <code>aviso texto</code> (echo)</td><td>Mensagem no chat para todos · mensagem só para você</td></tr>
+  <tr><td><code>esperar 2</code> (wait)</td><td>Espera</td></tr>
+  <tr><td><code>usar</code> (use) · <code>atacar</code> (attack)</td><td>Clique direito · clique esquerdo</td></tr>
+  <tr><td><code>esperar ataque</code> (wait attack)</td><td>Espera a espada carregar o golpe (dano máximo)</td></tr>
+  <tr><td><code>esperar peixe 45</code> (wait fish)</td><td>Espera o peixe morder (no máximo 45 s)</td></tr>
+  <tr><td><code>slot 1-9</code> · <code>selecionar &lt;item&gt;</code> (select)</td><td>Troca o slot da mão · acha o item no inventário e põe na mão</td></tr>
+  <tr><td><code>segurar</code> / <code>soltar</code> (hold / release)</td><td>Segura ou solta: frente, tras, esquerda, direita, pular, agachar, correr, atacar, usar (<code>soltar tudo</code>)</td></tr>
+  <tr><td><code>olhar &lt;giro&gt; &lt;cima&gt;</code> (look) · <code>virar &lt;graus&gt;</code> (turn)</td><td>Olha para uma direção exata · gira a partir de onde está olhando</td></tr>
+  <tr><td><code>esperar tela</code> (wait screen)</td><td>Espera o baú ou a mesa abrir</td></tr>
+  <tr><td><code>guardar tudo</code> (deposit all)</td><td>Guarda o inventário no baú aberto. Fica com você: o item da mão, os slots que o script usa com <code>slot N</code> e os blocos de reparo</td></tr>
+  <tr><td><code>guardar &lt;item&gt; [qtd]</code> · <code>pegar &lt;item&gt; [qtd]</code> (take)</td><td>Guarda ou tira um item do baú aberto</td></tr>
+  <tr><td><code>fechar</code> (close) · <code>craftar &lt;item&gt; [vezes]</code> (craft)</td><td>Fecha o baú · crafta pelo livro de receitas</td></tr>
+  <tr><td><code>parar</code> (stop)</td><td>Desliga a macro</td></tr>
+</table>
+<h3>Condições (use <code>nao</code> / <code>not</code> na frente para inverter)</h3>
+<table>
+  <tr><th style="width:34%">Condição (inglês)</th><th>Verdade quando</th></tr>
+  <tr><td><code>inventario cheio</code> (inventory full)</td><td>Não tem nenhum slot vazio</td></tr>
+  <tr><td><code>inventario vazio</code> (inventory empty)</td><td>Não sobrou nada que o <code>guardar tudo</code> levaria (serve para saber se o baú encheu)</td></tr>
+  <tr><td><code>tem &lt;item&gt; [qtd]</code> (has) · <code>segurando &lt;item&gt;</code> (holding)</td><td>Tem o item no inventário · o item da mão é esse</td></tr>
+  <tr><td><code>vida &lt; 6</code> (health) · <code>fome &lt; 14</code> (hunger)</td><td>Vida e fome de 0 a 20 (use &lt; &gt; &lt;= &gt;= =)</td></tr>
+  <tr><td><code>tela aberta</code> (screen open) · <code>bau aberto</code> (chest open)</td><td>Alguma tela aberta · um baú aberto</td></tr>
+</table>
+<h3>Ângulos do <code>olhar</code></h3>
+<p>Giro: <b>0</b> sul · <b>90</b> oeste · <b>180</b> norte · <b>-90</b> leste. Cima/baixo: <b>-90</b> reto para cima · <b>0</b> para frente · <b>50</b> bloco no chão à frente · <b>90</b> reto para baixo. Dica: aperte <b>F3</b> e olhe para o bloco; a linha <i>Facing</i> mostra os dois números.</p>
+
+<h3>Exemplos</h3>
+<div class="colunas">
+<pre><span class="c"># PESCA (marque Repetir)
+# /sethome pesca olhando para a água
+# /sethome bau olhando para o baú</span>
+se inventario cheio
+  /home bau
+  esperar 5
+  usar
+  esperar tela
+  guardar tudo
+  fechar
+  se inventario cheio
+    aviso Baú cheio! Macro parada.
+    parar
+  fim
+  /home pesca
+  esperar 5
+fim
+selecionar fishing_rod
+usar
+esperar 1
+esperar peixe 45
+usar
+esperar 1</pre>
+<pre><span class="c"># FARM NA TRAP (marque Repetir)
+# Espada no slot 1, comida no 9,
+# bloco de reparo no 8</span>
+slot 1
+se vida &lt; 6
+  aviso Vida baixa! Macro parada.
+  /home bau
+  parar
+fim
+se fome &lt; 14
+  slot 9
+  segurar usar
+  esperar 2
+  soltar usar
+  slot 1
+fim
+repetir 20
+  atacar
+  esperar ataque
+fim
+<span class="c"># para bater mais rápido:
+# troque "esperar ataque" por "esperar 3t"</span></pre>
+<pre><span class="c"># REPARO NO BLOCO DE FERRO (VIP)
+# /sethome reparo em cima do bloco,
+# olhando para baixo</span>
+/home reparo
+esperar 5
+slot 1
+usar
+esperar 1
+/home trap
+esperar 5</pre>
+<pre><span class="c"># VÁRIOS BAÚS: se o primeiro encher,
+# passa para o próximo</span>
+olhar 180 50
+usar
+esperar tela
+guardar tudo
+fechar
+se nao inventario vazio
+  olhar 180 10
+  usar
+  esperar tela
+  guardar tudo
+  fechar
+fim
+se nao inventario vazio
+  aviso Todos os baús cheios!
+  parar
+fim</pre>
+</div>
+<div class="destaque">Deixe na barra de atalhos só o que a macro usa (vara, espada, comida, bloco de reparo). O que cair depois, até na barra, vai para o baú no <code>guardar tudo</code>. As macros ficam salvas no seu jogo, em <code>config/servidorplus-macros.json</code>.</div>
+
+<!-- ======================= DINHEIRO / VIP ======================= -->
+<h2>Sistema de dinheiro</h2>
+<table>
+  <tr><th>Como ganhar / gastar</th><th style="width:40%">Valor padrão</th></tr>
+  <tr><td>Saldo inicial de todo jogador novo</td><td>$2.500</td></tr>
+  <tr><td>/diario – jogador normal</td><td>$1.000 por dia</td></tr>
+  <tr><td>/diario – VIP</td><td>$2.000 por dia</td></tr>
+  <tr><td>Matar mobs</td><td>$1 a $3.000 por mob (até $2.000 por hora)</td></tr>
+  <tr><td>Pescar</td><td>$1 a $30 por pesca (até $2.000 por hora)</td></tr>
+  <tr><td>Comprar itens na loja</td><td>Depende do item (ex.: diamante $400)</td></tr>
+  <tr><td>Vender itens na loja</td><td>40% do preço de compra (ex.: diamante $160)</td></tr>
+  <tr><td>Gerador de mobs vazio</td><td>$50.000 (a loja não compra de volta)</td></tr>
+  <tr><td>Ovos de mob</td><td>$10.000 a $70.000</td></tr>
+</table>
+
+<h2>Planos VIP</h2>
+<table>
+  <tr><th>Plano</th><th>Comando</th><th>Preço</th><th>Pode comprar de novo</th></tr>
+  <tr><td>3 Horas</td><td><code>/vip comprar 3h</code></td><td>$5.000</td><td>24 horas depois</td></tr>
+  <tr><td>7 Dias</td><td><code>/vip comprar 7d</code></td><td>$50.000</td><td>quando os 7 dias acabarem</td></tr>
+  <tr><td>1 Mês</td><td><code>/vip comprar 1m</code></td><td>$150.000</td><td>quando os 30 dias acabarem</td></tr>
+</table>
+<p class="nota">Cada plano tem o seu limite e um não bloqueia o outro: quem comprou o de 3 horas pode comprar o de 7 dias, e o tempo é somado ao VIP atual. O /vip mostra se cada plano está disponível ou quanto falta. O /vip dar do admin não tem limite.</p>
+<p>Itens que entram no inventário ao ativar cada plano:</p>
+<table>
+  <tr><th style="width:14%">Plano</th><th>Você recebe na hora</th></tr>
+  <tr><td>3 Horas</td><td>Armadura completa, espada, picareta, machado e pá de ferro encantados</td></tr>
+  <tr><td>7 Dias</td><td>Armadura completa, espada, picareta, machado e pá de diamante encantados (com Remendo), 1 cabeça aleatória, 16 obsidianas, 1 Ghast Seco e 1 Golem de Cobre</td></tr>
+  <tr><td>1 Mês</td><td>Armadura e ferramentas de netherite PRO, arco, totem, 16 pérolas do End, 2 ovos de mob aleatórios, 1 spawner, 1 baú de Ender e 15.000 de experiência</td></tr>
+</table>
+<p><b>Vantagens do VIP:</b> /kit vip, 15 homes (normal tem 5), diário de $2.000, 3 casas (normal tem 1), 20 lojas com placa (normal tem 5), /craft (bancada portátil), /fornalha (funde na hora, sem carvão, e dá XP), /bau (baú duplo de 54 espaços), /voar (pule duas vezes para voar), /visao (visão noturna), /pvp, morph (vire qualquer mob, tecla G), retirar geradores de mobs com picareta de netherite, teleporte sem contagem, não perde itens nem XP ao morrer e reparo no bloco de ferro. Quando o VIP vence, as vantagens param, o voo é desligado e o morph acaba sozinhos.</p>
+
+<h3>Baú VIP duplo</h3>
+<ul>
+  <li><code>/bau</code> abre um baú duplo de <b>54 espaços</b>, só do VIP e separado do baú do Ender.</li>
+  <li>Salva toda vez que o baú fecha.</li>
+  <li><b>Se o VIP acabar, os itens não somem</b>: o baú só não abre. Quando o VIP for ativado de novo, está tudo lá.</li>
+  <li>O que estava no <code>/bau</code> antigo continua no baú do Ender (pegue num baú do Ender colocado no chão).</li>
+</ul>
+
+<h3>Fornalha VIP com XP</h3>
+<p>A <code>/fornalha</code> continua fundindo na hora e sem carvão. Agora, ao tirar os itens prontos, você ganha a experiência de cada receita, igual a uma fornalha normal. Se fechar a fornalha com itens prontos dentro, o XP é dado na hora.</p>
+
+<!-- ======================= GERADORES E OVOS ======================= -->
+<h2 class="quebra">Traps de mob</h2>
+<p>Fique de frente para um terreno plano e livre, compre e clique em [CONFIRMAR]: a construção sobe na hora, já protegida só para você.</p>
+<table>
+  <tr><th style="width:36%">Comando</th><th>O que faz</th><th style="width:13%">Preço</th></tr>
+  <tr><td><code>/comprar trap &lt;mob&gt;</code></td><td>Trap com <b>10 geradores</b> do mob numa sala escura em cima e a caixa de matar na sua frente</td><td>$250.000</td></tr>
+  <tr><td><code>/trap lista</code> · <code>/trap ir [nº]</code></td><td>Lista suas traps · vai até a que escolher</td><td>–</td></tr>
+  <tr><td><code>/trap abandonar &lt;nº&gt;</code></td><td>Tira a proteção e desliga (sem reembolso)</td><td>–</td></tr>
+</table>
+<h3>Como a trap funciona</h3>
+<ul>
+  <li>Os mobs nascem nos 10 geradores, na sala escura no alto da trap.</li>
+  <li>O mod leva eles para a <b>caixa de matar</b>, na sua frente: ficam <b>parados e com 1 de vida</b> (não atacam, não explodem, não atiram). Cabem 12 de cada vez.</li>
+  <li>Você bate nas pernas deles pela fresta embaixo do vidro. Um golpe mata, e paga o dinheiro e o XP de Combate normalmente.</li>
+  <li>Os drops caem em funis e vão para os <b>5 barris</b> embaixo da caixa, na altura do seu pé.</li>
+  <li>Mobs: zumbi, esqueleto, aranha, aranha_caverna, creeper, bruxa, blaze, husk, stray, bogged, zumbi_aldeao.</li>
+  <li>Combina com a macro <b>Farm de mobs</b>: fique no ponto de matar e ligue a macro.</li>
+</ul>
+<p class="nota">Regra do próprio jogo: o gerador só funciona com você a até 16 blocos dele. Limite: 2 traps por jogador (VIP: 5). No config.json: <code>precoTrap</code>, <code>maxFarmsNormal</code>, <code>maxFarmsVip</code>.</p>
+<h3>Cana mais rápida</h3>
+<p>Toda cana de açúcar do mundo cresce mais rápido: <code>velocidadeCana</code> no config.json (padrão 4 = 4x; 1 = normal do jogo). Só a cana muda; o resto do jogo fica igual.</p>
+
+<h2>Geradores de mobs e ovos</h2>
+<h3>Retirar um gerador (VIP)</h3>
+<ul>
+  <li>VIP com <b>picareta de netherite</b> quebra um gerador (masmorra, mina abandonada, fortaleza...) e ele cai como item <b>"Gerador de &lt;mob&gt;"</b>, guardando o mob.</li>
+  <li>Coloque o item em outro lugar e o gerador volta com o mesmo mob.</li>
+  <li>Para trocar o mob, clique no gerador com o <b>ovo</b> do mob (gasta o ovo).</li>
+  <li>Retirar o gerador não dá XP (evita colocar e quebrar para ganhar XP).</li>
+  <li>Quem não é VIP não consegue quebrar gerador com picareta de netherite: aparece um aviso e o gerador não se perde. Com outra picareta quebra normal e o gerador some.</li>
+</ul>
+<h3>Comprar gerador e ovos</h3>
+<ul>
+  <li><code>/loja comprar spawner</code> – gerador vazio por <b>$50.000</b>. Coloque e clique com um ovo para escolher o mob.</li>
+  <li><code>/ovos</code> – tabela de preços. <code>/ovo comprar &lt;mob&gt; [qtd]</code> – compra (ex.: <code>/ovo comprar cow</code>).</li>
+</ul>
+<table>
+  <tr><th style="width:14%">Preço</th><th>Ovos</th></tr>
+  <tr><td>$10.000</td><td>Todos os comuns: vaca, porco, ovelha, galinha, coelho, zumbi, esqueleto, aranha, creeper, slime e outros</td></tr>
+  <tr><td>$20.000</td><td>Enderman, bruxa, guardião, cubo de magma, ghast, phantom</td></tr>
+  <tr><td>$30.000</td><td>Blaze, esqueleto wither, piglin, piglin bruto, hoglin, breeze, coguvaca, axolote</td></tr>
+  <tr><td>$40.000</td><td>Aldeão, saqueador, vingador</td></tr>
+  <tr><td>$50.000</td><td>Golem de ferro, golem de neve, devastador, farejador, allay</td></tr>
+  <tr><td>$60.000</td><td>Shulker</td></tr>
+  <tr><td>$70.000</td><td>Evocador (dropa totem)</td></tr>
+</table>
+<p class="nota">Não são vendidos: dragão, wither, warden e guardião ancião. Preços no config.json: <code>precoGerador</code>, <code>precoOvoComum</code>, <code>precoOvos</code>, <code>ovosBloqueados</code>.</p>
+
+<!-- ======================= LIVROS / PLACA ======================= -->
+<h2>Livros encantados</h2>
+<p>Compre com <code>/loja livro &lt;encantamento&gt; &lt;nível&gt;</code> e aplique na bigorna. Preço: $500 por nível. Níveis acima do normal (até 10) custam 3x. Remendo, Infinidade e Toque de Seda só existem no nível 1.</p>
+<table>
+  <tr><th>Encantamento</th><th>Nome no comando</th><th>Preço por nível</th></tr>
+  <tr><td>Afiação / Proteção / Eficiência</td><td><code>afiacao · protecao · eficiencia</code></td><td>$500</td></tr>
+  <tr><td>Inquebrável / Peso-Pena / Força</td><td><code>inquebravel · peso_pena · forca</code></td><td>$500</td></tr>
+  <tr><td>Fortuna / Pilhagem</td><td><code>fortuna · pilhagem</code></td><td>$1.000</td></tr>
+  <tr><td>Toque de Seda</td><td><code>toque_de_seda</code></td><td>$2.000</td></tr>
+  <tr><td>Infinidade</td><td><code>infinidade</code></td><td>$3.000</td></tr>
+  <tr><td>Remendo</td><td><code>remendo</code></td><td>$5.000</td></tr>
+</table>
+<p class="nota">Exemplos: Afiação V = $2.500 · Afiação X = $15.000 · Remendo = $5.000. Digite /loja livros no jogo para ver a lista completa (mais de 40 encantamentos).</p>
+
+<h2>Loja de jogador com placa</h2>
+<p>Coloque um baú (ou barril) com os itens e uma placa encostada nele. Escreva na placa:</p>
+<table>
+  <tr><th style="width:8%">Linha</th><th>O que escrever</th><th style="width:20%">Exemplo</th></tr>
+  <tr><td>1</td><td>Qualquer coisa (o mod coloca o seu nome)</td><td>-</td></tr>
+  <tr><td>2</td><td>Quantidade</td><td>64</td></tr>
+  <tr><td>3</td><td>C = preço para os outros comprarem de você · V = quanto você paga</td><td>C 500 : 300 V</td></tr>
+  <tr><td>4</td><td>Nome do item, código do /iteminfo, ou vazio (item da sua mão)</td><td>diamond · #1</td></tr>
+</table>
+<p>Depois clique com o botão direito na placa para ativar. Pode usar <b>auto</b> no lugar do preço (ex.: <code>C auto</code>) para o mod calcular pelo valor do item + encantamentos.</p>
+<table>
+  <tr><th style="width:30%">O outro jogador faz</th><th>O que acontece</th></tr>
+  <tr><td>Clique ESQUERDO na placa</td><td>Aparece 'Deseja comprar...?' com [CONFIRMAR]: ele paga, o item sai do seu baú</td></tr>
+  <tr><td>Clique DIREITO na placa</td><td>Aparece 'Deseja vender...?' com [CONFIRMAR]: você paga, o item vai para o seu baú</td></tr>
+</table>
+<p class="nota">Itens encantados: segure o item e digite /iteminfo. O mod mostra o código (ex.: #1) e o preço sugerido. Escreva o código na linha 4: o comprador recebe exatamente aquele item, com todos os encantamentos (dá para ver passando o mouse no nome do item na confirmação). Para remover a loja, quebre a placa.</p>
+
+<h3>Baú da loja trancado em qualquer lugar</h3>
+<p>Todo baú ou barril com uma placa de compra e venda fica trancado para o dono da placa, <b>mesmo fora da área do /loja</b>.</p>
+<div class="lado" style="grid-template-columns: 1fr 1fr">
+  <div class="figura" style="margin-top:0"><img src="img/bau-trancado.png" alt="Baú trancado"></div>
+  <ul>
+    <li>✔ Só o dono (ou admin) abre ou quebra o baú. Vale também para a outra metade de um baú duplo.</li>
+    <li>✔ Os clientes continuam comprando e vendendo normalmente pela placa.</li>
+    <li>✖ Outros jogadores não conseguem encostar um baú no da loja (para virar duplo).</li>
+    <li>✖ Ninguém consegue colocar funil embaixo do baú para puxar os itens.</li>
+    <li>Quem tentar recebe o aviso: <i>“Esse baú é da loja de wosvip.”</i></li>
+  </ul>
+</div>
+
+<h2>Casas modernas</h2>
+<p>Fique de frente para um terreno plano e livre e digite <code>/comprar casa pequena</code>, <code>media</code> ou <code>grande</code>. Clique em [CONFIRMAR] e a casa é construída à sua frente, já mobiliada, com a porta virada para você.</p>
+<div class="figura"><img src="img/casas.png" alt="Casas"></div>
+<table>
+  <tr><th>Casa</th><th>Tamanho</th><th>Preço</th><th>Vem com</th></tr>
+  <tr><td>Pequena</td><td>9×8</td><td>$20.000</td><td>cama, baú, bancada, fornalha</td></tr>
+  <tr><td>Média</td><td>13×10</td><td>$50.000</td><td>sala com cozinha + quarto com 2 camas e 2 baús</td></tr>
+  <tr><td>Grande</td><td>17×13, 2 andares</td><td>$120.000</td><td>cozinha completa, encantamentos, bigorna, quarto com 3 baús</td></tr>
+</table>
+<p class="nota">Proteção: a casa e 2 blocos em volta ficam protegidos. Outros jogadores não quebram, não colocam blocos, não abrem baús nem portas e não usam baldes perto. Libere amigos com /casa permitir &lt;jogador&gt;. Antes de construir, o mod confere se o terreno é plano, livre, fora da água, do spawn, de lojas e de outras casas; se algo falhar, ele avisa e não cobra. Limite: 1 casa (VIP: 3). Explosões ainda podem danificar a casa.</p>
+
+<h3>Loja pública</h3>
+<p>Use <code>/sethome loja</code> no lugar da sua loja: uma área de 300×300 blocos em volta fica protegida (os visitantes só compram e vendem pelas placas). Depois use <code>/loja loja</code> para abrir para visitas. Os outros jogadores chegam com <code>/loja visitar &lt;seu nome&gt;</code>. Para fechar, <code>/loja fechar</code>.</p>
+
+<!-- ======================= ECONOMIA ======================= -->
+<h2>Economia equilibrada</h2>
+<p>Os preços da loja são calculados sozinhos pelas receitas reais do Minecraft 26.3, toda vez que o servidor liga:</p>
+<ul>
+  <li>Matérias-primas (minérios, drops de mobs, troncos, pedras) têm um valor base.</li>
+  <li>Itens fabricados valem a soma dos ingredientes +10%, sempre pelo caminho mais barato (ex.: fornalha = 8 pedregulhos + 10%).</li>
+  <li>A loja paga 40% do preço de compra.</li>
+  <li>Resultado: comprar, fabricar e vender nunca dá lucro, nem desmontando blocos nem tingindo (testado nas 1.713 receitas do jogo).</li>
+  <li>A loja não compra itens de kit grátis, itens encantados, gastos ou renomeados (esses podem ser vendidos pela placa), nem geradores de mobs.</li>
+</ul>
+<table>
+  <tr><th>Item</th><th>Compra</th><th>Venda</th></tr>
+  <tr><td>Pedregulho</td><td>$2,00</td><td>$0,80</td></tr>
+  <tr><td>Fornalha</td><td>$17,61</td><td>$7,04</td></tr>
+  <tr><td>Lingote de ferro</td><td>$28,60</td><td>$11,44</td></tr>
+  <tr><td>Diamante</td><td>$400,00</td><td>$160,00</td></tr>
+  <tr><td>Sela</td><td>$64,47</td><td>$25,78</td></tr>
+  <tr><td>Baú de Ender</td><td>$628,43</td><td>$251,37</td></tr>
+  <tr><td>Caixa de shulker</td><td>$1.341,30</td><td>$536,51</td></tr>
+  <tr><td>Lingote de netherite</td><td>$7.937,61</td><td>$3.175,04</td></tr>
+  <tr><td>Gerador de mobs (vazio)</td><td>$50.000,00</td><td>–</td></tr>
+</table>
+<p class="nota">No config.json: <code>escalaPrecos</code> (2.0 = diamante $400; aumente para tudo ficar mais caro), <code>fatorVenda</code> (0.40 = a loja paga 40%) e <code>precosBase</code> (muda o valor de uma matéria-prima, ex.: "diamond": 250).</p>
+
+<h3>Spawn protegido</h3>
+<p>Depois do /setspawn, a área em volta (30 blocos) fica protegida: ninguém quebra nem coloca blocos e ninguém leva dano. Jogadores novos nascem no spawn, e quem morre sem cama volta para ele. Admins podem construir normalmente. Mude o tamanho com <code>/spawnraio &lt;blocos&gt;</code>.</p>
+
+<h3>Teleporte</h3>
+<p>Sem VIP: aparece na tela 3, 2, 1 com “Indo para &lt;destino&gt;” antes de teleportar (home, warp, spawn, back e TPA). Com VIP: teleporta na hora.</p>
+
+<h3>Reparo VIP no bloco de ferro</h3>
+<p>Segure o item gasto e clique com o botão direito num bloco de ferro colocado no chão. O item volta novo sem perder os encantamentos, gastando 1 bloco do inventário:</p>
+<table>
+  <tr><th>Item</th><th>Gasta</th></tr>
+  <tr><td>Netherite</td><td>1 bloco de netherite</td></tr>
+  <tr><td>Diamante</td><td>1 bloco de diamante</td></tr>
+  <tr><td>Ouro</td><td>1 bloco de ouro</td></tr>
+  <tr><td>Ferro e os outros (couro, pedra, madeira, arco, tridente...)</td><td>1 bloco de ferro</td></tr>
+</table>
+
+<!-- ======================= KITS / LIMPEZA ======================= -->
+<h2>O que vem em cada kit</h2>
+<h3>Kit inicial (uma vez só)</h3>
+<ul>
+  <li>Espada, picareta, machado e pá de pedra</li>
+  <li>Armadura de couro completa</li>
+  <li>32 pães e 32 tochas</li>
+  <li>16 troncos de carvalho, 1 bancada de trabalho e 1 fornalha</li>
+</ul>
+<h3>Kit minerador (a cada 12 horas)</h3>
+<ul>
+  <li>Picareta de ferro com Eficiência III e Inquebrável III</li>
+  <li>Picareta de ferro com Fortuna II e Inquebrável III</li>
+  <li>Pá de ferro com Eficiência III e Inquebrável III</li>
+  <li>Capacete de ferro, 64 tochas, 32 bifes assados e 1 balde de água</li>
+  <li>32 escadas de mão e 64 pedregulhos</li>
+</ul>
+<h3>Kit VIP – /kit vip (3h: 1 vez por ativação · 7d e 1m: 1 vez por semana)</h3>
+<ul>
+  <li>64 frascos de experiência</li>
+  <li>64 lingotes de ouro e 64 diamantes</li>
+  <li>16 molduras de item</li>
+  <li>6 maçãs douradas encantadas</li>
+  <li>2 baús armadilha e 1 fabricador (bancada automática)</li>
+</ul>
+<p class="nota">Vale o maior plano ativo: quem tem 1 mês e compra 3 horas continua com o kit semanal. Os itens de kit não podem ser vendidos para a loja (só para outros jogadores, pela placa).</p>
+
+<h2>Limpeza automática do chão</h2>
+<ul>
+  <li>Quando um jogador joga um item no chão, todos veem na tela: “Limpando chão em 30 segundos”.</li>
+  <li>Nos últimos 10 segundos aparece a contagem grande: 10, 9, 8 ... 1.</li>
+  <li>No fim, os itens do chão são removidos e aparece “Chão limpo!” com a quantidade removida.</li>
+  <li>Só apaga itens jogados por jogadores: ovos, drops de mobs e blocos quebrados não disparam. O admin usa /limparchao para limpar tudo.</li>
+  <li>Pode desligar ou mudar os segundos no config.json.</li>
+</ul>
+<p class="nota">Dica: para limpar o chat só da sua tela, aperte <b>F3 + D</b>.</p>
+
+<!-- ======================= CONFIG ======================= -->
+<h2>Arquivos de configuração</h2>
+<p>Ficam dentro da pasta do mundo, em <code>servidorplus/</code> (cada mundo tem os seus dados):</p>
+<table>
+  <tr><th style="width:28%">Arquivo</th><th>O que guarda</th></tr>
+  <tr><td><code>config.json</code></td><td>Preços do VIP, das casas, do gerador e dos ovos, limites, diário, saldo inicial, tempos dos kits, limpeza do chão, economia, habilidades, dinheiro por mob e por pesca</td></tr>
+  <tr><td><code>loja.json</code></td><td>Preço de compra e venda de todos os itens (recalculado sozinho; preços manuais são mantidos)</td></tr>
+  <tr><td><code>jogadores.json</code></td><td>Saldo, VIP, compras de VIP, homes, kits, XP das habilidades e morphs de cada jogador</td></tr>
+  <tr><td><code>bau_vip/</code></td><td>Um arquivo por jogador com os itens do baú VIP (continua lá mesmo se o VIP acabar)</td></tr>
+  <tr><td><code>blocos_colocados.json</code></td><td>Blocos colocados por jogadores (para não darem XP de habilidade)</td></tr>
+  <tr><td><code>casas.json</code></td><td>Casas compradas, área protegida e jogadores permitidos</td></tr>
+  <tr><td><code>placas.json</code> · <code>codigos.json</code></td><td>Lojas com placa e códigos de itens do /iteminfo</td></tr>
+  <tr><td><code>warps.json</code></td><td>Warps criadas pelo admin</td></tr>
+</table>
+<p class="nota">No jogo de cada jogador: o minimapa em <code>config/servidorplus-minimapa.json</code> e as macros em <code>config/servidorplus-macros.json</code> e a durabilidade em <code>config/servidorplus-durabilidade.json</code>.</p>
+
+<h3>Opções do config.json</h3>
+<table>
+  <tr><th style="width:34%">Opção</th><th>O que faz</th><th style="width:13%">Padrão</th></tr>
+  <tr><td><code>habilidadesAtivas</code></td><td>Liga/desliga as habilidades</td><td>true</td></tr>
+  <tr><td><code>habilidadeXpPorNivel</code></td><td>XP para subir cada nível</td><td>500</td></tr>
+  <tr><td><code>habilidadeNivelMaximo</code></td><td>Nível máximo (0 = sem limite)</td><td>0</td></tr>
+  <tr><td><code>habilidadeNivelBonusMaximo</code></td><td>Nível em que o drop duplo e os tesouros param de crescer</td><td>100</td></tr>
+  <tr><td><code>habilidadeMultiplicadorXp</code></td><td>2.0 = evento de XP em dobro</td><td>1.0</td></tr>
+  <tr><td><code>habilidadeDropDuploMaximo</code></td><td>% de drop duplo no nível de bônus máximo</td><td>25</td></tr>
+  <tr><td><code>habilidadeChanceTesouroMaxima</code></td><td>Quantas vezes a chance dos tesouros multiplica</td><td>3</td></tr>
+  <tr><td><code>habilidadeMinutosPvpMesmaVitima</code></td><td>Minutos para matar a mesma pessoa dar XP de novo</td><td>10</td></tr>
+  <tr><td><code>dinheiroMobsAtivo</code></td><td>Liga/desliga o dinheiro por mob</td><td>true</td></tr>
+  <tr><td><code>dinheiroPorMob</code></td><td>Valor de cada mob (ex.: "zombie": 8)</td><td>tabela</td></tr>
+  <tr><td><code>dinheiroMonstroPadrao</code></td><td>Valor dos monstros que não estão na tabela</td><td>5</td></tr>
+  <tr><td><code>dinheiroMobsLimitePorHora</code></td><td>Teto por jogador por hora (0 = sem limite)</td><td>2000</td></tr>
+  <tr><td><code>dinheiroBonusPorNivel</code></td><td>% a mais por nível de Combate/Agricultor/Pescador</td><td>0.5</td></tr>
+  <tr><td><code>dinheiroPescaAtivo</code></td><td>Liga/desliga o dinheiro por pesca</td><td>true</td></tr>
+  <tr><td><code>dinheiroPescaLimitePorHora</code></td><td>Teto da pesca por jogador por hora</td><td>2000</td></tr>
+  <tr><td><code>dinheiroPorPeixe</code> · <code>dinheiroPescaLixo</code></td><td>Valor de cada peixe · valor do lixo</td><td>tabela · 1</td></tr>
+  <tr><td><code>dinheiroPorTesouro</code></td><td>Valor dos tesouros simples (sela, etiqueta, concha)</td><td>tabela</td></tr>
+  <tr><td><code>dinheiroTesouroEncantadoBase</code> · <code>PorNivel</code> · <code>Maximo</code></td><td>Valor do tesouro encantado: base + por nível, até o máximo</td><td>15 · 3 · 30</td></tr>
+  <tr><td><code>precoGerador</code></td><td>Preço do gerador vazio na loja</td><td>50000</td></tr>
+  <tr><td><code>precoOvoComum</code></td><td>Preço dos ovos que não estão em precoOvos</td><td>10000</td></tr>
+  <tr><td><code>precoOvos</code></td><td>Preço de cada ovo mais caro (ex.: "evoker": 70000)</td><td>tabela</td></tr>
+  <tr><td><code>ovosBloqueados</code></td><td>Ovos que não são vendidos</td><td>chefes</td></tr>
+  <tr><td><code>morphAtivo</code> <span class="novo">NOVO</span></td><td>Liga/desliga o morph</td><td>true</td></tr>
+  <tr><td><code>morphSoVip</code> <span class="novo">NOVO</span></td><td>VIP ativo vira qualquer mob; sem VIP não usa</td><td>true</td></tr>
+  <tr><td><code>morphPorAbate</code> <span class="novo">NOVO</span></td><td>Quem não é VIP libera o morph do mob que matar</td><td>false</td></tr>
+  <tr><td><code>morphRecargas</code> <span class="novo">NOVO</span></td><td>Tempo de recarga entre os poderes da tecla V</td><td>true</td></tr>
+  <tr><td><code>morphDisfarce</code> <span class="novo">NOVO</span></td><td>Virou monstro, os monstros não atacam</td><td>true</td></tr>
+  <tr><td><code>morphExplosaoQuebraBlocos</code> <span class="novo">NOVO</span></td><td>Explosões e fogo dos morphs quebram/queimam blocos</td><td>false</td></tr>
+  <tr><td><code>morphVidaMaxima</code> <span class="novo">NOVO</span></td><td>Teto de vida ao virar um mob (Wither teria 300)</td><td>100</td></tr>
+  <tr><td><code>morphBloqueados</code> <span class="novo">NOVO</span></td><td>Mobs que não podem ser morph (ex.: ["ender_dragon", "wither"])</td><td>nenhum</td></tr>
+</table>
+<p class="nota">Depois de editar um arquivo, use /servidorplus reload ou reinicie o servidor.</p>
+
+</body>
+</html>

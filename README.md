@@ -3,7 +3,7 @@
 
 Launcher independente para gerenciar instalações, escolher carregadores e personalizar seu personagem.
 
-[**Site do projeto**](https://wosvip.github.io/wosvip-launcher/) · [**Releases**](https://github.com/wosvip/wosvip-launcher/releases)
+[**Site do projeto**](https://wosvip.github.io/wosvip-launcher/) · [**Releases**](https://github.com/wosvip/wosvip-launcher/releases) · [**Guia do ServidorPlus**](https://wosvip.github.io/wosvip-launcher/guia/)
 
 > **Versão 02.6.6.94:** testada localmente no Windows 11. A distribuição pública do instalador e a verificação de atualizações pelo GitHub ainda serão preparadas.
 
@@ -28,6 +28,11 @@ Launcher independente para gerenciar instalações, escolher carregadores e pers
 | ![Skins e capas](assets/skins-capas.webp) | ![Conta Microsoft](assets/conta-microsoft.webp) |
 
 ![Configurações](assets/configuracoes.webp)
+
+## Mod ServidorPlus
+Mod gratuito da wosvip® para Minecraft Java 26.3 com Fabric (homes, warps, economia, loja, habilidades, VIP, minimapa, macros, morph e durabilidade na tela, com Mod Menu e Sodium embutidos).
+
+[**Abrir o guia**](https://wosvip.github.io/wosvip-launcher/guia/) · [**Baixar o guia em PDF**](https://wosvip.github.io/wosvip-launcher/guia/ServidorPlus-Guia.pdf)
 
 ## Distribuição e próximos passos
 Consulte [Releases](https://github.com/wosvip/wosvip-launcher/releases) para verificar se há instalador publicado. A futura consulta a atualizações usará o GitHub Releases, com aviso e instalação **somente mediante autorização**. Esse mecanismo ainda não está implementado.
