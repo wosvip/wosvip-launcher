@@ -88,6 +88,7 @@
   <b class="tit">★ Novidades desta versão</b>
   <ul>
     <li><b>Reparo para todos</b> no bloco de ferro, com o material do item (netherite, diamante, ferro, tábua, pedregulho, linha para vara, arco e besta...). Sem VIP o item perde os encantamentos; VIP mantém. Nova habilidade <b>Reparação</b> com encantamento extra e, bem raro, encantamento <b>supremo</b> nível 7 a 10.</li>
+    <li><b>Venda de livros encantados</b> achados no mundo e na pesca (<code>/vender mao</code>), pagos por encantamento e nível. Maçã dourada encantada vende por $5.800.</li>
     <li><b>Novos preços do VIP</b>: 3 horas $30.000 · 7 dias $120.000 · 1 mês $500.000. Morph sem VIP custa $3.500 por vez.</li>
     <li><b>Morph</b>: vire quase qualquer mob do jogo com a tecla <b>G</b> e use o poder dele com a tecla <b>V</b> (bola de fogo, teleporte, laser, voo...). Virou monstro, os monstros não te atacam.</li>
     <li><b>Durabilidade na tela</b>: durabilidade colorida da armadura e dos itens, flechas, espaços livres e tempo das poções, com aviso de item quebrando. Tecla <b>H</b> mostra/esconde.</li>
@@ -820,6 +821,16 @@ fim</pre>
   <tr><td>Remendo</td><td><code>remendo</code></td><td>$5.000</td></tr>
 </table>
 <p class="nota">Exemplos: Afiação V = $2.500 · Afiação X = $15.000 · Remendo = $5.000. Digite /loja livros no jogo para ver a lista completa (mais de 40 encantamentos).</p>
+<h3>Vender livros encantados <span class="novo">NOVO</span></h3>
+<p>Achou um livro encantado no mundo, na pesca ou na mesa de encantamento? Segure o livro e use <code>/vender mao</code>. A loja paga <b>40% do preço do livro</b>, somando cada encantamento conforme o nível. O chat mostra quanto valeu cada um.</p>
+<table>
+  <tr><th>Livro</th><th>A loja paga</th></tr>
+  <tr><td>Afiação V</td><td>$1.000</td></tr>
+  <tr><td>Fortuna III</td><td>$1.200</td></tr>
+  <tr><td>Remendo</td><td>$2.000</td></tr>
+  <tr><td>Proteção IV + Inquebrável III</td><td>$800 + $600 = $1.400</td></tr>
+</table>
+<p class="nota">Maldições não valem nada. Livros de kit não são comprados. O <code>/vender tudo</code> não vende livros: use o <code>/vender mao</code>.</p>
 
 <h2>Loja de jogador com placa</h2>
 <p>Coloque um baú (ou barril) com os itens e uma placa encostada nele. Escreva na placa:</p>
@@ -873,7 +884,8 @@ fim</pre>
   <li>Itens fabricados valem a soma dos ingredientes +10%, sempre pelo caminho mais barato (ex.: fornalha = 8 pedregulhos + 10%).</li>
   <li>A loja paga 40% do preço de compra.</li>
   <li>Resultado: comprar, fabricar e vender nunca dá lucro, nem desmontando blocos nem tingindo (testado nas 1.713 receitas do jogo).</li>
-  <li>A loja não compra itens de kit grátis, itens encantados, gastos ou renomeados (esses podem ser vendidos pela placa), nem geradores de mobs.</li>
+  <li>A loja não compra itens de kit grátis, itens encantados, gastos ou renomeados (esses podem ser vendidos pela placa), nem geradores de mobs. Exceção: <b>livros encantados</b> achados no mundo são comprados com o <code>/vender mao</code>.</li>
+  <li><b>Maçã dourada encantada</b>: a loja vende por $10.000 e compra por <b>$5.800</b> (as do kit VIP não são compradas).</li>
 </ul>
 <table>
   <tr><th>Item</th><th>Compra</th><th>Venda</th></tr>
@@ -887,7 +899,7 @@ fim</pre>
   <tr><td>Lingote de netherite</td><td>$7.937,61</td><td>$3.175,04</td></tr>
   <tr><td>Gerador de mobs (vazio)</td><td>$50.000,00</td><td>–</td></tr>
 </table>
-<p class="nota">No config.json: <code>escalaPrecos</code> (2.0 = diamante $400; aumente para tudo ficar mais caro), <code>fatorVenda</code> (0.40 = a loja paga 40%) e <code>precosBase</code> (muda o valor de uma matéria-prima, ex.: "diamond": 250).</p>
+<p class="nota">No config.json: <code>escalaPrecos</code> (2.0 = diamante $400; aumente para tudo ficar mais caro), <code>fatorVenda</code> (0.40 = a loja paga 40%), <code>precoVendaFixo</code> (venda fixa de alguns itens, ex.: maçã encantada 5800), <code>livroFatorVenda</code> (0.40 = paga 40% do preço do livro) e <code>precosBase</code> (muda o valor de uma matéria-prima, ex.: "diamond": 250).</p>
 
 <h3>Spawn protegido</h3>
 <p>Depois do /setspawn, a área em volta (30 blocos) fica protegida: ninguém quebra nem coloca blocos e ninguém leva dano. Jogadores novos nascem no spawn, e quem morre sem cama volta para ele. Admins podem construir normalmente. Mude o tamanho com <code>/spawnraio &lt;blocos&gt;</code>.</p>
