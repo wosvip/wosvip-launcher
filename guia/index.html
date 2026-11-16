@@ -822,7 +822,7 @@ fim</pre>
 </table>
 <p class="nota">Exemplos: Afiação V = $2.500 · Afiação X = $15.000 · Remendo = $5.000. Digite /loja livros no jogo para ver a lista completa (mais de 40 encantamentos).</p>
 <h3>Vender livros encantados <span class="novo">NOVO</span></h3>
-<p>Achou um livro encantado no mundo, na pesca ou na mesa de encantamento? Segure o livro e use <code>/vender mao</code>. A loja paga <b>40% do preço do livro</b>, somando cada encantamento conforme o nível. O chat mostra quanto valeu cada um.</p>
+<p>Achou um livro encantado no mundo (baús, pesca, aldeões)? Segure o livro e use <code>/vender mao</code>. A loja paga <b>40% do preço do livro</b>, somando cada encantamento conforme o nível. O chat mostra quanto valeu cada um.</p>
 <table>
   <tr><th>Livro</th><th>A loja paga</th></tr>
   <tr><td>Afiação V</td><td>$1.000</td></tr>
@@ -830,6 +830,7 @@ fim</pre>
   <tr><td>Remendo</td><td>$2.000</td></tr>
   <tr><td>Proteção IV + Inquebrável III</td><td>$800 + $600 = $1.400</td></tr>
 </table>
+<div class="destaque"><b>Livro comum não entra na mesa de encantamento.</b> Ao colocar, ele volta para o inventário com o aviso "Livros não podem ser encantados na mesa". Assim ninguém fabrica livros para vender. Espadas, armaduras e ferramentas continuam sendo encantadas normalmente.</div>
 <p class="nota">Maldições não valem nada. Livros de kit não são comprados. O <code>/vender tudo</code> não vende livros: use o <code>/vender mao</code>.</p>
 
 <h2>Loja de jogador com placa</h2>
@@ -899,7 +900,7 @@ fim</pre>
   <tr><td>Lingote de netherite</td><td>$7.937,61</td><td>$3.175,04</td></tr>
   <tr><td>Gerador de mobs (vazio)</td><td>$50.000,00</td><td>–</td></tr>
 </table>
-<p class="nota">No config.json: <code>escalaPrecos</code> (2.0 = diamante $400; aumente para tudo ficar mais caro), <code>fatorVenda</code> (0.40 = a loja paga 40%), <code>precoVendaFixo</code> (venda fixa de alguns itens, ex.: maçã encantada 5800), <code>livroFatorVenda</code> (0.40 = paga 40% do preço do livro) e <code>precosBase</code> (muda o valor de uma matéria-prima, ex.: "diamond": 250).</p>
+<p class="nota">No config.json: <code>escalaPrecos</code> (2.0 = diamante $400; aumente para tudo ficar mais caro), <code>fatorVenda</code> (0.40 = a loja paga 40%), <code>precoVendaFixo</code> (venda fixa de alguns itens, ex.: maçã encantada 5800), <code>livroFatorVenda</code> (0.40 = paga 40% do preço do livro), <code>livroBloquearNaMesa</code> (true = livro comum não entra na mesa de encantamento) e <code>precosBase</code> (muda o valor de uma matéria-prima, ex.: "diamond": 250).</p>
 
 <h3>Spawn protegido</h3>
 <p>Depois do /setspawn, a área em volta (30 blocos) fica protegida: ninguém quebra nem coloca blocos e ninguém leva dano. Jogadores novos nascem no spawn, e quem morre sem cama volta para ele. Admins podem construir normalmente. Mude o tamanho com <code>/spawnraio &lt;blocos&gt;</code>.</p>
